@@ -26,7 +26,7 @@ function render(){
     ctx.drawImage(tube,tubeX,innerHeight-tubeHeight,tubeWidth, tubeHeight);
     tubeX=tubeX-1-speed
  
- console.log("1")
+
 }
 
 
