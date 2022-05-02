@@ -10,7 +10,7 @@ ctx.fillRect(0,0, mapWidth, mapHeight)
  let tube=document.getElementById('tube')
  
  let tubeWidth=mapWidth/15
-let tubeHeight=mapHeight/2.5
+  let tubeHeight=mapHeight/2.5
  window.onload=function(){
  ctx.drawImage(tube, 50,0, tubeWidth, tubeHeight);
  
