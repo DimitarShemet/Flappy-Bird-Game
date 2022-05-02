@@ -9,10 +9,10 @@ ctx.fillRect(0,0, mapWidth, mapHeight)
  //Рисуем трубу
  let tube=document.getElementById('tube')
  
- tube.width=64
- tube.height=400
+ let tubeWidth=mapWidth/15
+let tubeHeight=mapHeight/2.5
  window.onload=function(){
- ctx.drawImage(tube, 50,0,mapWidth/15, mapHeight/2.5);
+ ctx.drawImage(tube, 50,0, tubeWidth, tubeHeight);
  
  }
 setInterval(render,1000/60)
