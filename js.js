@@ -12,7 +12,7 @@ let mapHeight=canvas.height
   let tubeWidth=mapWidth/15
    let tubeHeight=mapHeight/2.5
    let tubeX=mapWidth
- 
+ let speed=1
   
 
 
@@ -23,7 +23,8 @@ function render(){
     ctx.fillRect(0,0, mapWidth, mapHeight)
      //Рисуем трубу
     ctx.drawImage(tube, tubeX,0, tubeWidth, tubeHeight);
-    tubeX=tubeX-1
+    ctx.drawImage(tube,tubeX,innerHeight-tubeHeight,tubeWidth, tubeHeight);
+    tubeX=tubeX-1-speed
  
  console.log("1")
 }
