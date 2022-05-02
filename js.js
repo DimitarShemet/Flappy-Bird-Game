@@ -1,3 +1,4 @@
+window.onload=function(){
 let canvas=document.getElementById('canvas')
 canvas.width=innerWidth
 canvas.height=innerHeight
@@ -14,4 +15,4 @@ ctx.fillRect(0,0, mapWidth, mapHeight)
 
  ctx.drawImage(tube, 50,0, tubeWidth, tubeHeight);
  
- 
+}
