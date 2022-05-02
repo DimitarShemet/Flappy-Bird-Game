@@ -12,7 +12,7 @@ ctx.fillRect(0,0, mapWidth, mapHeight)
  tube.width=64
  tube.height=400
  window.onload=function(){
- ctx.drawImage(tube, 50,0,mapWidth/35, mapHeight/2.5);
+ ctx.drawImage(tube, 50,0,mapWidth/15, mapHeight/2.5);
  
  }
 setInterval(render,1000/60)
