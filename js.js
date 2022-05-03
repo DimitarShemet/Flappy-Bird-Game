@@ -18,7 +18,7 @@ let mapHeight=canvas.height
    let tubeX2=(mapWidth*0.66)+mapWidth/2    
    let tubeX3=mapWidth+mapWidth/2         // Позиционируем трубы на равноудаленное расстояние
   
- let mapSpeed=2
+ let mapSpeed=3
 
  
   // Настройки птицы
@@ -66,9 +66,9 @@ function render(){
 
     ctx.drawImage(tube,tubeX3, 0, tubeWidth, tubeHeight3);
     ctx.drawImage(tube,tubeX3,tubeHeight3+distance,tubeWidth, mapHeight); // 3-я пара
-    tubeX1=tubeX1-1-mapSpeed
-    tubeX2=tubeX2-1-mapSpeed
-    tubeX3=tubeX3-1-mapSpeed
+    tubeX1=tubeX1-mapSpeed
+    tubeX2=tubeX2-mapSpeed
+    tubeX3=tubeX3-mapSpeed
         // Уход труб за экран 
     const tubeOut1=tubeX1+tubeWidth<0
     const tubeOut2=tubeX2+tubeWidth<0
