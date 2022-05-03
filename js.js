@@ -16,7 +16,7 @@ let mapHeight=canvas.height
    let tubeX2=(mapWidth*0.66)+mapWidth/2    
    let tubeX3=mapWidth+mapWidth/2         // Позиционируем трубы на равноудаленное расстояние
   
- let mapSpeed=1
+ let mapSpeed=2
  let distance=innerHeight/5
  
   // Настройки птицы
