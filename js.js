@@ -1,7 +1,7 @@
 
 let canvas=document.getElementById('canvas')
 canvas.width=innerWidth
-canvas.height=innerHeight
+canvas.height=innerHeight    
 let mapWidth=canvas.width
 let mapHeight=canvas.height
  
@@ -9,15 +9,17 @@ let mapHeight=canvas.height
 
   //Настройки труб
   let tube=document.getElementById('tube')
-  
+  let distance=mapHeight/5
   let tubeWidth=mapWidth/15
-   let tubeHeight=mapHeight/2
+  let tubeHeight1=Math.random()*mapHeight/2+distance
+  let tubeHeight2=Math.random()*mapHeight/2+distance
+  let tubeHeight3=Math.random()*mapHeight/2+distance
    let tubeX1=(mapWidth*0.33)+mapWidth/2         
    let tubeX2=(mapWidth*0.66)+mapWidth/2    
    let tubeX3=mapWidth+mapWidth/2         // Позиционируем трубы на равноудаленное расстояние
   
  let mapSpeed=2
- let distance=innerHeight/5
+
  
   // Настройки птицы
    let bird=document.getElementById('bird')
@@ -56,29 +58,32 @@ function render(){
     ctx.fillRect(0,0, mapWidth, mapHeight)
 
      //Рисуем трубы и движение труб 
-    ctx.drawImage(tube,tubeX1, 0, tubeWidth, tubeHeight);
-    ctx.drawImage(tube,tubeX1,tubeHeight+distance,tubeWidth, tubeHeight); // 1-я пара
+    ctx.drawImage(tube,tubeX1, 0, tubeWidth, tubeHeight1);
+    ctx.drawImage(tube,tubeX1,tubeHeight1+distance,tubeWidth, mapHeight); // 1-я пара
 
-    ctx.drawImage(tube,tubeX2, 0, tubeWidth, tubeHeight);
-    ctx.drawImage(tube,tubeX2,tubeHeight+distance,tubeWidth, tubeHeight); // 2-я пара
+    ctx.drawImage(tube,tubeX2, 0, tubeWidth, tubeHeight2);
+    ctx.drawImage(tube,tubeX2,tubeHeight2+distance,tubeWidth, mapHeight); // 2-я пара
 
-    ctx.drawImage(tube,tubeX3, 0, tubeWidth, tubeHeight);
-    ctx.drawImage(tube,tubeX3,tubeHeight+distance,tubeWidth, tubeHeight); // 3-я пара
+    ctx.drawImage(tube,tubeX3, 0, tubeWidth, tubeHeight3);
+    ctx.drawImage(tube,tubeX3,tubeHeight3+distance,tubeWidth, mapHeight); // 3-я пара
     tubeX1=tubeX1-1-mapSpeed
     tubeX2=tubeX2-1-mapSpeed
     tubeX3=tubeX3-1-mapSpeed
-
+        // Уход труб за экран 
     const tubeOut1=tubeX1+tubeWidth<0
     const tubeOut2=tubeX2+tubeWidth<0
     const tubeOut3=tubeX3+tubeWidth<0
     if(tubeOut1){
      tubeX1=mapWidth
+     tubeHeight1=Math.random()*mapHeight/2+distance
     }
     if(tubeOut2){
       tubeX2=mapWidth
+       tubeHeight2=Math.random()*mapHeight/2+distance
      }
      if(tubeOut3){
       tubeX3=mapWidth
+      tubeHeight3=Math.random()*mapHeight/2+distance
      }
     
     
