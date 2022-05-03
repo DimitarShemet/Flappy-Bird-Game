@@ -12,9 +12,9 @@ let mapHeight=canvas.height
   
   let tubeWidth=mapWidth/15
    let tubeHeight=mapHeight/2
-   let tubeX1=mapWidth*0.33         
-   let tubeX2=mapWidth*0.66
-   let tubeX3=mapWidth         // Позиционируем трубы на равноудаленное расстояние
+   let tubeX1=(mapWidth*0.33)+mapWidth/2         
+   let tubeX2=(mapWidth*0.66)+mapWidth/2    
+   let tubeX3=mapWidth+mapWidth/2         // Позиционируем трубы на равноудаленное расстояние
   
  let mapSpeed=1
  let distance=innerHeight/5
