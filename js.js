@@ -94,17 +94,46 @@ function render(){
     birdY=birdY+gravity
     gravity=gravity+1.5*9.8/1000*1000/60   // Высчитываем свободное падение за один проход функции
     const  birdFell=birdY>mapHeight-birdHeight
-    
+     // Падение птицы на дно 
     if(birdFell){
-       alert('gameOver')
+       alert('Птица упала')
      reset()
-   }
-   const birdMetTube=birdX+birdWith-tubeWidth/9>tubeX1
-   const isTubeReachBird = (tubeX1 < birdX +birdWith-birdWith/5) && (tubeX1 + tubeWidth > birdX) // где birdWidth/5 -погрешность за счёт того, что фигура не идеальная 
-   if (isTubeReachBird) {
-     const isTubeHitBird = tubeHeight1-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight1 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
-     if(isTubeHitBird){
+   } 
+    // Логика для 1 пары труб
+  
+   const isTube1ReachBird = (tubeX1 < birdX +birdWith-birdWith/5) && (tubeX1 + tubeWidth > birdX) // где birdWidth/5 -погрешность за счёт того, что фигура не идеальная 
+   if (isTube1ReachBird) {
+     const isTube1HitBird = tubeHeight1-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight1 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
+     if(isTube1HitBird){
      alert('труба')
+     reset()
      }
- }
+   }
+ 
+     // Логика для 2 пары труб
+   const isTube2ReachBird = (tubeX2 < birdX +birdWith-birdWith/5) && (tubeX2 + tubeWidth > birdX) // где birdWidth/5 -погрешность за счёт того, что фигура не идеальная 
+   if (isTube2ReachBird) {
+     const isTube2HitBird = tubeHeight2-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight2 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
+     if(isTube2HitBird){
+     alert('труба')
+     reset()
+     }
+   }
+
+     // Логика для 3 пары труб
+   const isTube3ReachBird = (tubeX3 < birdX +birdWith-birdWith/5) && (tubeX3 + tubeWidth > birdX) // где birdWidth/5 -погрешность за счёт того, что фигура не идеальная 
+   if (isTube3ReachBird) {
+     const isTube3HitBird = tubeHeight3-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight3 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
+     if(isTube3HitBird){
+     alert('труба')
+     reset()
+     }
+   }
+
+ 
+
+ 
+
+
+   
 }
