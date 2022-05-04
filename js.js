@@ -25,8 +25,8 @@ let mapHeight=canvas.height
    let bird=document.getElementById('bird')
    let birdX=mapWidth/10
    let birdY=innerHeight/2
-   let birdWith=innerHeight/16
-   let birdHeight=innerHeight/14
+   let birdWith=innerHeight/18
+   let birdHeight=innerHeight/16
    let gravity=0
   
     
