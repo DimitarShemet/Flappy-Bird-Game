@@ -33,14 +33,14 @@ let mapHeight=canvas.height
    // Обработчики событий для птицы
    canvas.addEventListener("click",birdUp,false)
 function birdUp(){
-   gravity=gravity-mapHeight/180
+   gravity=gravity-mapHeight/140
 }      
 
 
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
-   gravity=gravity-mapHeight/270
+   gravity=gravity-mapHeight/370
 }    
    // функция сброса
    function reset(){
