@@ -9,7 +9,7 @@ let mapHeight=canvas.height
 
   //Настройки труб
   let tube=document.getElementById('tube')
-  let distance=mapHeight/5
+  let distance=mapHeight/4.5
   let tubeWidth=mapWidth/15
   let tubeHeight1=Math.random()*mapHeight/2+distance
   let tubeHeight2=Math.random()*mapHeight/2+distance
@@ -18,29 +18,29 @@ let mapHeight=canvas.height
    let tubeX2=(mapWidth*0.66)+mapWidth/2    
    let tubeX3=mapWidth+mapWidth/2         // Позиционируем трубы на равноудаленное расстояние
   
- let mapSpeed=3
+ let mapSpeed=mapWidth/400
 
  
   // Настройки птицы
    let bird=document.getElementById('bird')
-   let birdX=50
+   let birdX=mapWidth/10
    let birdY=innerHeight/2
-   let birdWith=innerHeight/12
-   let birdHeight=innerHeight/10
+   let birdWith=innerHeight/16
+   let birdHeight=innerHeight/14
    let gravity=0
   
     
    // Обработчики событий для птицы
    canvas.addEventListener("click",birdUp,false)
 function birdUp(){
-   gravity=gravity-mapHeight/208
+   gravity=gravity-mapHeight/180
 }      
 
 
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
-   gravity=gravity-4.5
+   gravity=gravity-mapHeight/180
 }    
    // функция сброса
    function reset(){
