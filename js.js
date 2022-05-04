@@ -94,9 +94,17 @@ function render(){
     birdY=birdY+gravity
     gravity=gravity+1.5*9.8/1000*1000/60   // Высчитываем свободное падение за один проход функции
     const  birdFell=birdY>mapHeight-birdHeight
+    
     if(birdFell){
+       alert('gameOver')
      reset()
    }
-
-
+   const birdMetTube=birdX+birdWith-tubeWidth/9>tubeX1
+   const isTubeReachBird = (tubeX1 < birdX +birdWith-birdWith/5) && (tubeX1 + tubeWidth > birdX) // где birdWidth/5 -погрешность за счёт того, что фигура не идеальная 
+   if (isTubeReachBird) {
+     const isTubeHitBird = tubeHeight1-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight1 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
+     if(isTubeHitBird){
+     alert('труба')
+     }
  }
+}
