@@ -41,7 +41,7 @@ function birdUp(){
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
-  gravity=gravity-mapHeight/240
+  gravity=gravity-mapHeight/840
 }    
    // функция сброса
    function reset(){
