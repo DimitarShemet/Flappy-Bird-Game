@@ -93,7 +93,7 @@ function render(){
     // Рисуем птицу и движение птицы
     ctx.drawImage(bird,birdX,birdY,birdWith, birdHeight);
     birdY=birdY+gravity
-    gravity=gravity+mapHeight/3000            //0.2445  Высчитываем свободное падение за один проход функции
+    gravity=gravity+mapHeight/4000            //0.2445  Высчитываем свободное падение за один проход функции
     const  birdFell=birdY>mapHeight-birdHeight
      // Падение птицы на дно 
     if(birdFell){
