@@ -86,7 +86,14 @@ function render(){
       tubeX3=mapWidth
       tubeHeight3=Math.random()*mapHeight/2+distance
      }
-    
+      //Пропишем увеличение скорости
+      if(birdX>tubeX3+tubeWidth){
+        mapSpeed=mapSpeed+mapWidth/72360 // 24120 -подобранная цифра для плавного увеличения скорости карты
+        console.log(mapWidth/72360)
+        console.log("сработало")
+      }
+     
+     
     
      
 
@@ -129,6 +136,7 @@ function render(){
      alert('труба')
      reset()
      }
+    
    }
 
  
