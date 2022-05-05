@@ -40,7 +40,7 @@ function birdUp(){
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
-   gravity=gravity+0.5
+  gravity=gravity-mapHeight/140
 }    
    // функция сброса
    function reset(){
@@ -87,12 +87,12 @@ function render(){
      }
     
     
-    
+     console.log(mapHeight/3500)
 
     // Рисуем птицу и движение птицы
     ctx.drawImage(bird,birdX,birdY,birdWith, birdHeight);
     birdY=birdY+gravity
-    gravity=gravity+1.5*9.8/1000*1000/60   // Высчитываем свободное падение за один проход функции
+    gravity=gravity+mapHeight/3000            //0.2445  Высчитываем свободное падение за один проход функции
     const  birdFell=birdY>mapHeight-birdHeight
      // Падение птицы на дно 
     if(birdFell){
