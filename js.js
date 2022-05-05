@@ -34,13 +34,14 @@ let mapHeight=canvas.height
    canvas.addEventListener("click",birdUp,false)
 function birdUp(){
    gravity=gravity-mapHeight/140
+  
 }      
 
 
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
-  gravity=gravity-mapHeight/140
+  gravity=gravity-mapHeight/240
 }    
    // функция сброса
    function reset(){
@@ -87,7 +88,7 @@ function render(){
      }
     
     
-     console.log(mapHeight/3500)
+     
 
     // Рисуем птицу и движение птицы
     ctx.drawImage(bird,birdX,birdY,birdWith, birdHeight);
