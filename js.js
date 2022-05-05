@@ -88,8 +88,7 @@ function render(){
      }
       //Пропишем увеличение скорости
       if(birdX>tubeX3+tubeWidth){
-        mapSpeed=mapSpeed+mapWidth/72360 // 24120 -подобранная цифра для плавного увеличения скорости карты
-        console.log(mapWidth/72360)
+        mapSpeed=mapSpeed+mapWidth/96480 // 96480 -подобранная цифра для плавного увеличения скорости карты
         console.log("сработало")
       }
      
