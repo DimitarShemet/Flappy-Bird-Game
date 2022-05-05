@@ -48,7 +48,15 @@ function birdup(){
       birdY=innerHeight/2-birdHeight
       gravity=1
    }
+   // Звуки
+   
+   const birdHit = new Audio()
+   birdHit.src = 'music/bird-hit.wav' // Птица попала в трубу
+   birdHit.volume = 0.03
 
+   const birdDie = new Audio()
+  birdDie.src = 'music/bird-die.wav' // Птица упала
+  birdDie.volume = 0.06
   
 setInterval(render,1000/60)
                            
@@ -59,14 +67,14 @@ function render(){
     ctx.fillRect(0,0, mapWidth, mapHeight)
 
      //Рисуем трубы и движение труб 
-    ctx.drawImage(tube,tubeX1, 0, tubeWidth, tubeHeight1);
-    ctx.drawImage(tube,tubeX1,tubeHeight1+distance,tubeWidth, mapHeight); // 1-я пара
+    ctx.drawImage(tube,tubeX1, 0, tubeWidth, tubeHeight1)
+    ctx.drawImage(tube,tubeX1,tubeHeight1+distance,tubeWidth, mapHeight) // 1-я пара
 
-    ctx.drawImage(tube,tubeX2, 0, tubeWidth, tubeHeight2);
-    ctx.drawImage(tube,tubeX2,tubeHeight2+distance,tubeWidth, mapHeight); // 2-я пара
+    ctx.drawImage(tube,tubeX2, 0, tubeWidth, tubeHeight2)
+    ctx.drawImage(tube,tubeX2,tubeHeight2+distance,tubeWidth, mapHeight) // 2-я пара
 
-    ctx.drawImage(tube,tubeX3, 0, tubeWidth, tubeHeight3);
-    ctx.drawImage(tube,tubeX3,tubeHeight3+distance,tubeWidth, mapHeight); // 3-я пара
+    ctx.drawImage(tube,tubeX3, 0, tubeWidth, tubeHeight3)
+    ctx.drawImage(tube,tubeX3,tubeHeight3+distance,tubeWidth, mapHeight) // 3-я пара
     tubeX1=tubeX1-mapSpeed
     tubeX2=tubeX2-mapSpeed
     tubeX3=tubeX3-mapSpeed
@@ -97,12 +105,13 @@ function render(){
      
 
     // Рисуем птицу и движение птицы
-    ctx.drawImage(bird,birdX,birdY,birdWith, birdHeight);
+    ctx.drawImage(bird,birdX,birdY,birdWith, birdHeight)
     birdY=birdY+gravity
     gravity=gravity+mapHeight/4000            //0.2445  Высчитываем свободное падение за один проход функции
     const  birdFell=birdY>mapHeight-birdHeight
      // Падение птицы на дно 
     if(birdFell){
+      birdDie.play()                    // Алексей, я про этот момент 
        alert('Птица упала')
      reset()
    } 
@@ -112,6 +121,7 @@ function render(){
    if (isTube1ReachBird) {
      const isTube1HitBird = tubeHeight1-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight1 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube1HitBird){
+      birdHit.play()
      alert('труба')
      reset()
      }
@@ -122,6 +132,7 @@ function render(){
    if (isTube2ReachBird) {
      const isTube2HitBird = tubeHeight2-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight2 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube2HitBird){
+      birdHit.play()
      alert('труба')
      reset()
      }
@@ -132,6 +143,7 @@ function render(){
    if (isTube3ReachBird) {
      const isTube3HitBird = tubeHeight3-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight3 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube3HitBird){
+      birdHit.play()
      alert('труба')
      reset()
      }
