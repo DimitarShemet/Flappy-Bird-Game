@@ -144,7 +144,7 @@ function render(){
      const isTube1HitBird = tubeHeight1-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight1 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube1HitBird){
       birdHit.play()
-     alert('труба')
+      window.navigator.vibrate(300)  
      reset()
      }
    }
@@ -155,7 +155,7 @@ function render(){
      const isTube2HitBird = tubeHeight2-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight2 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube2HitBird){
       birdHit.play()
-     alert('труба')
+      window.navigator.vibrate(300)  
      reset()
      }
    }
@@ -166,7 +166,7 @@ function render(){
      const isTube3HitBird = tubeHeight3-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight3 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube3HitBird){
       birdHit.play()
-     alert('труба')
+      window.navigator.vibrate(300)  
      reset()
      }
     
