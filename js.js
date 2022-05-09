@@ -59,9 +59,9 @@ function birdup(){
    // функция сброса
    function reset(){
       alert('gameover')
-      gravity=0
+     gravity=0
       score=0
-      mapSpeed=0   
+      
       birdY=mapHeight/4
    }
    // Звуки
