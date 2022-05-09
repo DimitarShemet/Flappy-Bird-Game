@@ -137,9 +137,10 @@ function render(){
       window.navigator.vibrate(300)  
       reset()
    } 
-   if(birdY<0){
+   if(birdY<0){     // параметры для потолка
     birdY=0
     window.navigator.vibrate(300)  
+    gravity=0
   }
     // Логика для 1 пары труб
   
