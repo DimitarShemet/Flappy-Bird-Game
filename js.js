@@ -133,8 +133,8 @@ function render(){
     if(birdFell){
       birdDie.play()  
       window.navigator.vibrate(300)             
-       alert('Птица упала')
-     reset()
+     
+     
    } 
     // Логика для 1 пары труб
   
