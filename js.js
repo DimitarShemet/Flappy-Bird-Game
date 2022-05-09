@@ -8,7 +8,8 @@ let mapHeight=canvas.height
  let ctx=canvas.getContext("2d")
 
   //Настройки труб
-  let tube=document.getElementById('tube')
+  let tube=new Image()
+  tube.src="tube.png"
   let distance=mapHeight/4.5
   let tubeWidth=mapWidth/15
   let tubeHeight1=Math.random()*mapHeight/2+distance
@@ -26,13 +27,17 @@ let mapHeight=canvas.height
 
  
   // Настройки птицы
-   let bird=document.getElementById('bird')
+   let bird=new Image()
+   bird.src="bird.gif"
    let birdX=mapWidth/10
    let birdY=innerHeight/2
    let birdWith=innerHeight/18
    let birdHeight=innerHeight/16
    let gravity=0
    let score=0
+  
+  
+  
    
   
   
@@ -41,6 +46,7 @@ let mapHeight=canvas.height
    canvas.addEventListener("click",birdUp,false)
 function birdUp(){
    gravity=gravity-mapHeight/140
+   
   
 }      
 
@@ -164,9 +170,9 @@ function render(){
     
    }
       // Счёт игры
-       ctx.fillStyle="white"
-      ctx.font=mapWidth/35+"px"+" serif"
-      ctx.fillText("score:"+score,mapWidth/45, mapHeight/15)
+       ctx.fillStyle="black"
+      ctx.font=mapWidth/30+"px"+" serif"
+      ctx.fillText(+score,mapWidth/2, mapHeight/10)
       if ( birdX>tubeX1+tubeWidth && !tube1Flag ) {
         score=score+1
         birdPass.play()
