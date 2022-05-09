@@ -132,7 +132,8 @@ function render(){
      // Падение птицы на дно 
     if(birdFell){
       birdDie.play()  
-      window.navigator.vibrate(300)             
+      window.navigator.vibrate(300)  
+      birdY=mapHeight-birdHeight           
      
      
    } 
