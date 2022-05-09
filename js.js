@@ -17,8 +17,12 @@ let mapHeight=canvas.height
    let tubeX1=(mapWidth*0.33)+mapWidth/2         
    let tubeX2=(mapWidth*0.66)+mapWidth/2    
    let tubeX3=mapWidth+mapWidth/2         // Позиционируем трубы на равноудаленное расстояние
-  
  let mapSpeed=mapWidth/400
+ let tube1Flag=false  // Флаг для пролета 1-й трубы 
+ let tube2Flag=false  //Флаг для пролета 1-й трубы 
+ let tube3Flag=false  //Флаг для пролета 1-й трубы 
+ let tube5Flag=false  //Флаг для пролета каждой 5-й трубы 
+ 
 
  
   // Настройки птицы
@@ -28,6 +32,9 @@ let mapHeight=canvas.height
    let birdWith=innerHeight/18
    let birdHeight=innerHeight/16
    let gravity=0
+   let score=0
+   
+  
   
     
    // Обработчики событий для птицы
@@ -47,6 +54,7 @@ function birdup(){
    function reset(){
       birdY=innerHeight/2-birdHeight
       gravity=1
+      score=0
    }
    // Звуки
    
@@ -57,6 +65,15 @@ function birdup(){
    const birdDie = new Audio()
   birdDie.src = 'music/bird-die.wav' // Птица упала
   birdDie.volume = 0.06
+
+  const birdPass = new Audio()
+  birdPass.src = 'music/pass.mp3' // Птица пролетела через трубу
+  birdPass.volume = 0.06
+  
+  const bonus=new Audio()  // Бонус за каждую 10-ую трубу
+  bonus.src="music/bonus.mp3"
+  bonus.volume=0.1
+ 
   
 setInterval(render,1000/60)
                            
@@ -97,13 +114,10 @@ function render(){
       //Пропишем увеличение скорости
       if(birdX>tubeX3+tubeWidth){
         mapSpeed=mapSpeed+mapWidth/96480 // 96480 -подобранная цифра для плавного увеличения скорости карты
-        console.log("сработало")
+        
       }
      
      
-    
-     
-
     // Рисуем птицу и движение птицы
     ctx.drawImage(bird,birdX,birdY,birdWith, birdHeight)
     birdY=birdY+gravity
@@ -149,6 +163,48 @@ function render(){
      }
     
    }
+      // Счёт игры
+       ctx.fillStyle="white"
+      ctx.font=mapWidth/35+"px"+" serif"
+      ctx.fillText("score:"+score,mapWidth/45, mapHeight/15)
+      if ( birdX>tubeX1+tubeWidth && !tube1Flag ) {
+        score=score+1
+        birdPass.play()
+        tube1Flag=true;
+        tube3Flag=false
+
+      }
+      
+      if ( birdX>tubeX2+tubeWidth && !tube2Flag ) {
+        score=score+1
+        birdPass.play()
+        tube2Flag=true;
+        tube1Flag=false;
+      }
+      if ( birdX>tubeX3+tubeWidth && !tube3Flag ) {
+        score=score+1
+        birdPass.play()
+        tube3Flag=true
+        tube2Flag=false;
+      }
+      if (score!==0  && score % 5===0 && !tube5Flag ) {   // Бонус за каждую 5-ую трубу
+        birdPass.volume = 0
+        bonus.play()
+        tube5Flag=true
+       }
+       if (score!==0  && score % 5!==0 ) {  
+        tube5Flag=false
+        birdPass.volume = 0.06
+       }
+      
+
+      
+   
+      
+      
+       
+       }
+     
 
  
 
@@ -156,4 +212,3 @@ function render(){
 
 
    
-}
