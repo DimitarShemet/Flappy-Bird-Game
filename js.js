@@ -58,9 +58,11 @@ function birdup(){
 }    
    // функция сброса
    function reset(){
-      birdY=innerHeight/2-birdHeight
-      gravity=1
+      alert('gameover')
+      gravity=0
       score=0
+      mapSpeed=0   
+      birdY=mapHeight/4
    }
    // Звуки
    
@@ -133,9 +135,7 @@ function render(){
     if(birdFell){
       birdDie.play()  
       window.navigator.vibrate(300)  
-      birdY=mapHeight-birdHeight           
-     
-     
+      reset()
    } 
     // Логика для 1 пары труб
   
