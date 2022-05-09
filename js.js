@@ -137,6 +137,10 @@ function render(){
       window.navigator.vibrate(300)  
       reset()
    } 
+   if(birdY<0){
+    birdY=0
+    window.navigator.vibrate(300)  
+  }
     // Логика для 1 пары труб
   
    const isTube1ReachBird = (tubeX1 < birdX +birdWith-birdWith/5) && (tubeX1 + tubeWidth > birdX) // где birdWidth/5 -погрешность за счёт того, что фигура не идеальная 
@@ -144,7 +148,7 @@ function render(){
      const isTube1HitBird = tubeHeight1-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight1 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube1HitBird){
       birdHit.play()
-      window.navigator.vibrate(300)  
+      
      reset()
      }
    }
@@ -155,7 +159,7 @@ function render(){
      const isTube2HitBird = tubeHeight2-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight2 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube2HitBird){
       birdHit.play()
-      window.navigator.vibrate(300)  
+   
      reset()
      }
    }
@@ -166,14 +170,9 @@ function render(){
      const isTube3HitBird = tubeHeight3-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight3 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube3HitBird){
       birdHit.play()
-      window.navigator.vibrate(300)  
      reset()
      }
-    if(birdY<0){
-      birdY=0
-      window.navigator.vibrate(300)  
-
-    }
+   
    }
       // Счёт игры
        ctx.fillStyle="black"
