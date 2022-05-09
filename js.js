@@ -169,7 +169,11 @@ function render(){
       window.navigator.vibrate(300)  
      reset()
      }
-    
+    if(birdY<0){
+      birdY=0
+      window.navigator.vibrate(300)  
+
+    }
    }
       // Счёт игры
        ctx.fillStyle="black"
