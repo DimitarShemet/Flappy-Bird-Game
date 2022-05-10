@@ -94,7 +94,7 @@ function birdup(){
      sky.src="sky.png"
      let skySpeed=mapWidth/880
      let skyWidth=mapWidth/16.9
-     let skyHeight=mapHeight/16.9
+     let skyHeight=mapHeight/25
 
      let skyX1=0
      let skyX2=mapWidth-skyWidth
@@ -107,6 +107,7 @@ setInterval(render,1000/60)
                            
 
 function render(){
+
      //Рисуем карту
     ctx.fillStyle="lightblue"
     ctx.fillRect(0,0, mapWidth, mapHeight)
@@ -116,7 +117,7 @@ function render(){
     
    skyX1=skyX1+skySpeed
    skyX2=skyX2-skySpeed
-   if(skyX1>=mapWidth-skyWidth){    // При столкновении облака движутся в обратную сторону
+   if(skyX1>=mapWidth-skyWidth){    // При столкновении  движутся в обратную сторону
      skyX1=0
    }
    if(skyX2<=0){
