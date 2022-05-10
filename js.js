@@ -35,7 +35,12 @@ let mapHeight=canvas.height
    let birdHeight=innerHeight/16
    let gravity=0
    let score=0
-  
+   let birdFlap=new Audio()
+   birdFlap.src="music/bird-flap.wav"
+   birdFlap.volume=0.03
+
+
+
   
   
    
@@ -45,6 +50,8 @@ let mapHeight=canvas.height
    // Обработчики событий для птицы
    canvas.addEventListener("click",birdUp,false)
 function birdUp(){
+   birdFlap.play()
+   
    gravity=gravity-mapHeight/140
    
   
@@ -54,6 +61,7 @@ function birdUp(){
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
+  birdFlap.play()
   gravity=gravity-mapHeight/1240
 }    
    // функция сброса
@@ -81,6 +89,18 @@ function birdup(){
   const bonus=new Audio()  // Бонус за каждую 10-ую трубу
   bonus.src="music/bonus.mp3"
   bonus.volume=0.1
+     // Настройки облаков
+     let sky=new Image()
+     sky.src="sky.png"
+     let skySpeed=mapWidth/880
+     let skyWidth=mapWidth/16.9
+     let skyHeight=mapHeight/16.9
+
+     let skyX1=0
+     let skyX2=mapWidth-skyWidth
+    
+  
+    
  
   
 setInterval(render,1000/60)
@@ -90,7 +110,19 @@ function render(){
      //Рисуем карту
     ctx.fillStyle="lightblue"
     ctx.fillRect(0,0, mapWidth, mapHeight)
-
+    // Рисуем облака
+    ctx.drawImage(sky,skyX1,0,skyWidth,skyHeight)
+    ctx.drawImage(sky,skyX2,0,skyWidth,skyHeight)
+    
+   skyX1=skyX1+skySpeed
+   skyX2=skyX2-skySpeed
+   if(skyX1>=mapWidth-skyWidth){    // При столкновении облака движутся в обратную сторону
+     skyX1=0
+   }
+   if(skyX2<=0){
+    skyX2=mapWidth-skyWidth
+  }
+   
      //Рисуем трубы и движение труб 
     ctx.drawImage(tube,tubeX1, 0, tubeWidth, tubeHeight1)
     ctx.drawImage(tube,tubeX1,tubeHeight1+distance,tubeWidth, mapHeight) // 1-я пара
