@@ -98,8 +98,14 @@ function birdup(){
 
      let skyX1=0
      let skyX2=mapWidth-skyWidth
+     window.addEventListener("load",audio,false)
+     function audio(){
+       birdDie.play()
+       birdDie.pause()
+
+     }
     
-  
+  confirm("Начать игру?")
     
  
   
