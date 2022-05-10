@@ -123,6 +123,8 @@ function render(){
    if(skyX2<=0){
     skyX2=mapWidth-skyWidth
   }
+  
+
    
      //Рисуем трубы и движение труб 
     ctx.drawImage(tube,tubeX1, 0, tubeWidth, tubeHeight1)
@@ -210,7 +212,7 @@ function render(){
    }
       // Счёт игры
        ctx.fillStyle="black"
-      ctx.font=mapWidth/30+"px"+" serif"
+      ctx.font=mapHeight/30+"px"+" serif"
       ctx.fillText(+score,mapWidth/2, mapHeight/10)
       if ( birdX>tubeX1+tubeWidth && !tube1Flag ) {
         score=score+1
