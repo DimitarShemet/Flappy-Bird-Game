@@ -95,7 +95,7 @@ function birdup(){
      let sunSpeed=mapWidth/880
      let sunWidth=mapHeight/11
      let sunHeight=mapHeight/11
-
+     
      let sunX1=0
      let sunX2=mapWidth-sunWidth
      window.addEventListener("load",audio,false)
@@ -114,7 +114,7 @@ setInterval(render,1000/60)
 
 function render(){
 
-     //Рисуем карту
+    //Рисуем карту
     ctx.fillStyle="lightblue"
     ctx.fillRect(0,0, mapWidth, mapHeight)
     // Рисуем облака
@@ -123,12 +123,13 @@ function render(){
     
    sunX1=sunX1+sunSpeed
    sunX2=sunX2-sunSpeed
-   if(sunX1>=mapWidth-sunWidth){    // При столкновении  движутся в обратную сторону
-     sunX1=0
+   if(sunX1+sunWidth>=sunX2){    // При столкновении  движутся в обратную сторону
+    sunSpeed=-mapWidth/880
+     console.log("da")
    }
-   if(sunX2<=0){
-    sunX2=mapWidth-sunWidth
-  }
+   if(sunX1<=0)         // При lдостижении полюсов движутся в обратную сторону
+   sunSpeed=mapWidth/880
+  
   
 
    
