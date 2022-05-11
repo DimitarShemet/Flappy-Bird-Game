@@ -90,14 +90,14 @@ function birdup(){
   bonus.src="music/bonus.mp3"
   bonus.volume=0.1
      // Настройки облаков
-     let sky=new Image()
-     sky.src="sun.png"
-     let skySpeed=mapWidth/880
-     let skyWidth=mapHeight/11
-     let skyHeight=mapHeight/11
+     let sun=new Image()
+     sun.src="sun.png"
+     let sunSpeed=mapWidth/880
+     let sunWidth=mapHeight/11
+     let sunHeight=mapHeight/11
 
-     let skyX1=0
-     let skyX2=mapWidth-skyWidth
+     let sunX1=0
+     let sunX2=mapWidth-sunWidth
      window.addEventListener("load",audio,false)
      function audio(){
        birdDie.play()
@@ -118,16 +118,16 @@ function render(){
     ctx.fillStyle="lightblue"
     ctx.fillRect(0,0, mapWidth, mapHeight)
     // Рисуем облака
-    ctx.drawImage(sky,skyX1,0,skyWidth,skyHeight)
-    ctx.drawImage(sky,skyX2,0,skyWidth,skyHeight)
+    ctx.drawImage(sun,sunX1,0,sunWidth,sunHeight)
+    ctx.drawImage(sun,sunX2,0,sunWidth,sunHeight)
     
-   skyX1=skyX1+skySpeed
-   skyX2=skyX2-skySpeed
-   if(skyX1>=mapWidth-skyWidth){    // При столкновении  движутся в обратную сторону
-     skyX1=0
+   sunX1=sunX1+sunSpeed
+   sunX2=sunX2-sunSpeed
+   if(sunX1>=mapWidth-sunWidth){    // При столкновении  движутся в обратную сторону
+     sunX1=0
    }
-   if(skyX2<=0){
-    skyX2=mapWidth-skyWidth
+   if(sunX2<=0){
+    sunX2=mapWidth-sunWidth
   }
   
 
