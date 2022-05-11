@@ -91,10 +91,10 @@ function birdup(){
   bonus.volume=0.1
      // Настройки облаков
      let sky=new Image()
-     sky.src="sky.png"
+     sky.src="sun.png"
      let skySpeed=mapWidth/880
-     let skyWidth=mapWidth/16.9
-     let skyHeight=mapHeight/25
+     let skyWidth=mapHeight/11
+     let skyHeight=mapHeight/11
 
      let skyX1=0
      let skyX2=mapWidth-skyWidth
