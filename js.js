@@ -41,8 +41,6 @@ let mapHeight=canvas.height
 
 
 
-  
-  
    
   
   
@@ -50,6 +48,7 @@ let mapHeight=canvas.height
    // Обработчики событий для птицы
    canvas.addEventListener("click",birdUp,false)
 function birdUp(){
+ 
    birdFlap.play()
    
    gravity=gravity-mapHeight/140
@@ -102,8 +101,10 @@ function birdup(){
      function audio(){
        birdDie.play()
        birdDie.pause()
-
      }
+     // Спрайт
+     let sprite=new Image()
+     sprite.src="Result.png"
     
   confirm("Начать игру?")
     
@@ -114,10 +115,11 @@ setInterval(render,1000/60)
 
 function render(){
 
+
     //Рисуем карту
     ctx.fillStyle="lightblue"
     ctx.fillRect(0,0, mapWidth, mapHeight)
-    // Рисуем облака
+    // Рисуем 2 солнца
     ctx.drawImage(sun,sunX1,0,sunWidth,sunHeight)
     ctx.drawImage(sun,sunX2,0,sunWidth,sunHeight)
     
@@ -125,7 +127,7 @@ function render(){
    sunX2=sunX2-sunSpeed
    if(sunX1+sunWidth>=sunX2){    // При столкновении  движутся в обратную сторону
     sunSpeed=-mapWidth/880
-     console.log("da")
+     
    }
    if(sunX1<=0)         // При lдостижении полюсов движутся в обратную сторону
    sunSpeed=mapWidth/880
@@ -173,6 +175,12 @@ function render(){
     birdY=birdY+gravity
     gravity=gravity+mapHeight/4000            // Высчитываем свободное падение за один проход функции
     const  birdFell=birdY>mapHeight-birdHeight
+     // Рисуем анимацию птицы
+        
+               
+             
+             
+
      // Падение птицы на дно 
     if(birdFell){
       birdDie.play()  
