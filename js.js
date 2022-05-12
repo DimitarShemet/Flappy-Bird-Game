@@ -48,7 +48,9 @@ let mapHeight=canvas.height
    // Обработчики событий для птицы
    canvas.addEventListener("click",birdUp,false)
 function birdUp(){
-   angle=-25
+   angle=angle-15
+   if(angle<=-30)
+   angle=-30
    birdFlap.play()
    
    gravity=gravity-mapHeight/140
