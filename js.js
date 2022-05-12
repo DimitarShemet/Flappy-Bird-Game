@@ -38,7 +38,7 @@ let mapHeight=canvas.height
    let birdFlap=new Audio()
    birdFlap.src="music/bird-flap.wav"
    birdFlap.volume=0.03
-
+  let angle=0
 
 
    
@@ -48,7 +48,7 @@ let mapHeight=canvas.height
    // Обработчики событий для птицы
    canvas.addEventListener("click",birdUp,false)
 function birdUp(){
- 
+   angle=-25
    birdFlap.play()
    
    gravity=gravity-mapHeight/140
@@ -107,7 +107,8 @@ function birdup(){
      sprite.src="Result.png"
     
   confirm("Начать игру?")
-    
+ 
+
  
   
 setInterval(render,1000/60)
@@ -171,17 +172,33 @@ function render(){
      
      
     // Рисуем птицу и движение птицы
-    ctx.drawImage(bird,birdX,birdY,birdWith, birdHeight)
+    function inRad(num) {   // Функция для вычисления rad в deg
+      return num * Math.PI / 180;
+    }
     birdY=birdY+gravity
-    gravity=gravity+mapHeight/4000            // Высчитываем свободное падение за один проход функции
-    const  birdFell=birdY>mapHeight-birdHeight
-     // Рисуем анимацию птицы
-        
+    gravity=gravity+mapHeight/4000  
+   
+    angle=angle+0.5
+    if(angle>=52)
+    angle=52
+     ctx.save()                             // поворачиваем только птицу
+     ctx.translate(birdX,birdY)
+     ctx.rotate(inRad(angle))
+     
+      
+    
+     // Рисуем  картинку
+     ctx.drawImage(bird,0,0,birdWith, birdHeight)
+     console.log(angle)
+    
+     ctx.restore();
                
              
-             
+           
+     
 
      // Падение птицы на дно 
+     const  birdFell=birdY>mapHeight-birdHeight
     if(birdFell){
       birdDie.play()  
       window.navigator.vibrate(300)  
