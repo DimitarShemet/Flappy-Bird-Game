@@ -99,15 +99,14 @@ function birdup(){
      
      let sunX1=0
      let sunX2=mapWidth-sunWidth
-     window.addEventListener("load",audio,false)
+     window.addEventListener("load",audio,false)   // Запуск при загрузке страницы
      function audio(){
        birdDie.play()
        birdDie.pause()
      }
-     // Спрайт
-     let sprite=new Image()
-     sprite.src="Result.png"
-    
+     
+     
+
   confirm("Начать игру?")
  
 
@@ -191,7 +190,7 @@ function render(){
     
      // Рисуем  картинку
      ctx.drawImage(bird,0,0,birdWith, birdHeight)
-     console.log(angle)
+
     
      ctx.restore();
                
