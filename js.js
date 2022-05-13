@@ -46,17 +46,7 @@ let mapHeight=canvas.height
   
     
    // Обработчики событий для птицы
-   canvas.addEventListener("click",birdUp,false)
-function birdUp(){
-   angle=angle-15
-   if(angle<=-30)
-   angle=-30
-   birdFlap.play()
-   
-   gravity=gravity-mapHeight/140
-   
-  
-}      
+ 
 
 
 canvas.addEventListener("touchstart",birdup,false)
@@ -110,13 +100,35 @@ function birdup(){
   confirm("Начать игру?")
  
 
- 
+  canvas.addEventListener("click",birdUp,false)
+  function birdUp(){
+   
+     let timer=setInterval(func,1000/60)
+     function func(){
+       angle=angle-5
+      
+       if(angle<=-20){
+         angle=-20
+        console.log(angle)
+        clearInterval(timer)
+      
+      }
+      
+     }
+    
+     birdFlap.play()
+     gravity=gravity-mapHeight/140
+     
+    
+  }      
   
 setInterval(render,1000/60)
                            
 
 function render(){
 
+  
+  
 
     //Рисуем карту
     ctx.fillStyle="lightblue"
@@ -179,9 +191,10 @@ function render(){
     birdY=birdY+gravity
     gravity=gravity+mapHeight/4000  
    
-    angle=angle+0.5
-    if(angle>=52)
-    angle=52
+    angle=angle+0.6
+    
+    if(angle>=42)
+    angle=42
      ctx.save()                             // поворачиваем только птицу
      ctx.translate(birdX,birdY)
      ctx.rotate(inRad(angle))
