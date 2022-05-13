@@ -52,6 +52,20 @@ let mapHeight=canvas.height
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
+  let timer=setInterval(func,1000/120)
+    function func(){
+     
+      if(angle>=-10){
+       angle=angle-2
+     }
+     if(angle>-20){
+     angle=angle-0.6
+     console.log(angle)
+     }
+     if(angle<=-20){
+       clearInterval(timer)
+     }
+    }
   birdFlap.play()
   gravity=gravity-mapHeight/1240
 }    
