@@ -1,4 +1,6 @@
 
+
+
 let canvas=document.getElementById('canvas')
 canvas.width=innerWidth
 canvas.height=innerHeight    
@@ -6,6 +8,8 @@ let mapWidth=canvas.width
 let mapHeight=canvas.height
  
  let ctx=canvas.getContext("2d")
+
+ 
 
   //Настройки труб
   let tube=new Image()
@@ -71,11 +75,11 @@ function birdup(){
 }    
    // функция сброса
    function reset(){
-      alert('gameover')
+      mapSpeed=0
      gravity=0
       score=0
       
-      birdY=mapHeight/4
+      
    }
    // Звуки
    
@@ -138,12 +142,12 @@ function birdup(){
    
     
   }      
-  
+  let gameState=0
 setInterval(render,1000/60)
                            
 
 function render(){
-
+       if(gameState==0){
   
   
 
@@ -216,24 +220,16 @@ function render(){
      ctx.translate(birdX,birdY)
      ctx.rotate(inRad(angle))
      
-      
-    
      // Рисуем  картинку
      ctx.drawImage(bird,0,0,birdWith, birdHeight)
 
-    
      ctx.restore();
-               
-             
-           
-     
-
      // Падение птицы на дно 
      const  birdFell=birdY>mapHeight-birdHeight
     if(birdFell){
       birdDie.play()  
       window.navigator.vibrate(300)  
-      reset()
+      gameState=1
    } 
    if(birdY<0){     // параметры для потолка
     birdY=0
@@ -247,8 +243,8 @@ function render(){
      const isTube1HitBird = tubeHeight1-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight1 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube1HitBird){
       birdHit.play()
-      
-     reset()
+       gameState=1
+    
      }
    }
  
@@ -258,8 +254,8 @@ function render(){
      const isTube2HitBird = tubeHeight2-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight2 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube2HitBird){
       birdHit.play()
-   
-     reset()
+      gameState=1
+     
      }
    }
 
@@ -269,7 +265,7 @@ function render(){
      const isTube3HitBird = tubeHeight3-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight3 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube3HitBird){
       birdHit.play()
-     reset()
+      gameState=1
      }
    
    }
@@ -306,16 +302,11 @@ function render(){
         tube5Flag=false
         birdPass.volume = 0.06
        }
-      
-
-      
-   
-      
-      
-       
+      }
        }
-     
-
+       
+  
+  
  
 
  
