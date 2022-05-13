@@ -103,22 +103,25 @@ function birdup(){
   canvas.addEventListener("click",birdUp,false)
   function birdUp(){
    
-     let timer=setInterval(func,1000/60)
-     function func(){
-       angle=angle-5
-      
-       if(angle<=-20){
-         angle=-20
-        console.log(angle)
-        clearInterval(timer)
-      
-      }
-      
-     }
-    
-     birdFlap.play()
-     gravity=gravity-mapHeight/140
+    let timer=setInterval(func,1000/120)
+    function func(){
      
+      if(angle>=-10){
+       angle=angle-2
+     }
+     if(angle>-20){
+     angle=angle-0.6
+     console.log(angle)
+     }
+     if(angle<=-20){
+       clearInterval(timer)
+     }
+    }
+   
+    birdFlap.play()
+    gravity=gravity-mapHeight/140
+    
+   
     
   }      
   
