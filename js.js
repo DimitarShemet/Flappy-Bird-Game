@@ -1,5 +1,26 @@
 
-
+  let gameState=0 // 0-игра, 1-пауза
+  let start=document.getElementById('start')
+ start.addEventListener('click',play,false)
+ start.style.display="none"
+ function play(){
+  start.style.display="none"
+   gameState=0
+    birdX=mapWidth/10
+    birdY=innerHeight/2
+    gravity=0
+    tubeX1=(mapWidth*0.33)+mapWidth/2         
+    tubeX2=(mapWidth*0.66)+mapWidth/2    
+    tubeX3=mapWidth+mapWidth/2  
+    mapSpeed=mapWidth/400
+    score=0
+     tube1Flag=false  
+     tube2Flag=false 
+     tube3Flag=false  
+     tube5Flag=false  
+      sunX1=0
+      sunX2=mapWidth-sunWidth
+ }
 
 let canvas=document.getElementById('canvas')
 canvas.width=innerWidth
@@ -24,8 +45,8 @@ let mapHeight=canvas.height
    let tubeX3=mapWidth+mapWidth/2         // Позиционируем трубы на равноудаленное расстояние
  let mapSpeed=mapWidth/400
  let tube1Flag=false  // Флаг для пролета 1-й трубы 
- let tube2Flag=false  //Флаг для пролета 1-й трубы 
- let tube3Flag=false  //Флаг для пролета 1-й трубы 
+ let tube2Flag=false  //Флаг для пролета 2-й трубы 
+ let tube3Flag=false  //Флаг для пролета 3-й трубы 
  let tube5Flag=false  //Флаг для пролета каждой 5-й трубы 
  
 
@@ -40,7 +61,7 @@ let mapHeight=canvas.height
    let gravity=0
    let score=0
    let birdFlap=new Audio()
-   birdFlap.src="music/bird-flap.wav"
+   birdFlap.src="music/bird-flap.wav"  // Звук подлета птицы
    birdFlap.volume=0.03
   let angle=0
 
@@ -56,8 +77,9 @@ let mapHeight=canvas.height
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
-  let timer=setInterval(func,1000/120)
-    function func(){
+  if(gameState===0){
+  let timer=setInterval(birdRotate,1000/120)
+    function birdRotate(){
      
       if(angle>=-10){
        angle=angle-2
@@ -70,17 +92,12 @@ function birdup(){
        clearInterval(timer)
      }
     }
+  birdFlap.volume=0.03
   birdFlap.play()
   gravity=gravity-mapHeight/1240
+}
 }    
-   // функция сброса
-   function reset(){
-      mapSpeed=0
-     gravity=0
-      score=0
-      
-      
-   }
+   
    // Звуки
    
    const birdHit = new Audio()
@@ -107,12 +124,8 @@ function birdup(){
      
      let sunX1=0
      let sunX2=mapWidth-sunWidth
-     window.addEventListener("load",audio,false)   // Запуск при загрузке страницы
-     function audio(){
-       birdDie.play()
-       birdDie.pause()
-     }
-     
+    
+    
      
 
   confirm("Начать игру?")
@@ -120,9 +133,10 @@ function birdup(){
 
   canvas.addEventListener("click",birdUp,false)
   function birdUp(){
+    if(gameState===0){
    
-    let timer=setInterval(func,1000/120)
-    function func(){
+    let timer=setInterval(birdRotate,1000/120)
+    function birdRotate(){
      
       if(angle>=-10){
        angle=angle-2
@@ -135,14 +149,15 @@ function birdup(){
        clearInterval(timer)
      }
     }
-   
-    birdFlap.play()
     gravity=gravity-mapHeight/140
+    birdFlap.volume=0.03
+    birdFlap.play()
     
    
+  }
     
   }      
-  let gameState=0
+ 
 setInterval(render,1000/60)
                            
 
@@ -230,6 +245,9 @@ function render(){
       birdDie.play()  
       window.navigator.vibrate(300)  
       gameState=1
+      birdFlap.volume=0
+      gravity=0
+      start.style.display="block"
    } 
    if(birdY<0){     // параметры для потолка
     birdY=0
@@ -244,6 +262,9 @@ function render(){
      if(isTube1HitBird){
       birdHit.play()
        gameState=1
+       birdFlap.volume=0
+       gravity=0
+       start.style.display="block"
     
      }
    }
@@ -255,7 +276,9 @@ function render(){
      if(isTube2HitBird){
       birdHit.play()
       gameState=1
-     
+      birdFlap.volume=0
+      gravity=0
+      start.style.display="block"
      }
    }
 
@@ -266,6 +289,9 @@ function render(){
      if(isTube3HitBird){
       birdHit.play()
       gameState=1
+      birdFlap.volume=0
+      gravity=0
+      start.style.display="block"
      }
    
    }
@@ -302,7 +328,10 @@ function render(){
         tube5Flag=false
         birdPass.volume = 0.06
        }
+       
       }
+     
+      
        }
        
   
