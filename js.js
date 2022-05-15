@@ -1,8 +1,8 @@
 
-  let gameState=0 // 0-игра, 1-пауза
+  let gameState=1 // 0-игра, 1-пауза
   let start=document.getElementById('start')
  start.addEventListener('click',play,false)
- start.style.display="none"
+ 
  function play(){
   start.style.display="none"
    gameState=0
@@ -20,7 +20,14 @@
      tube5Flag=false  
       sunX1=0
       sunX2=mapWidth-sunWidth
+      clickSoundInit(); 
  }
+ function clickSoundInit() {
+  birdDie.play(); // запускаем звук
+  birdDie.pause(); // и сразу останавливаем
+  
+}
+
 
 let canvas=document.getElementById('canvas')
 canvas.width=innerWidth
@@ -128,7 +135,7 @@ function birdup(){
     
      
 
-  confirm("Начать игру?")
+ 
  
 
   canvas.addEventListener("click",birdUp,false)
