@@ -25,8 +25,17 @@
  function clickSoundInit() {
   birdDie.play(); // запускаем звук
   birdDie.pause(); // и сразу останавливаем
-  
+  birdHit.play();
+  birdHit.pause(); 
 }
+  function clickSoundFell() {
+        birdDie.currentTime=0; // в секундах
+        birdDie.play();
+    }
+    function clickSoundHit() {
+      birdHit.currentTime=0; // в секундах
+      birdHit.play();
+  }
 
 
 let canvas=document.getElementById('canvas')
@@ -249,12 +258,13 @@ function render(){
      // Падение птицы на дно 
      const  birdFell=birdY>mapHeight-birdHeight
     if(birdFell){
-      birdDie.play()  
+      clickSoundFell()
       window.navigator.vibrate(300)  
       gameState=1
       birdFlap.volume=0
       gravity=0
       start.style.display="block"
+    
    } 
    if(birdY<0){     // параметры для потолка
     birdY=0
@@ -267,7 +277,7 @@ function render(){
    if (isTube1ReachBird) {
      const isTube1HitBird = tubeHeight1-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight1 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube1HitBird){
-      birdHit.play()
+      clickSoundHit()
        gameState=1
        birdFlap.volume=0
        gravity=0
@@ -281,7 +291,7 @@ function render(){
    if (isTube2ReachBird) {
      const isTube2HitBird = tubeHeight2-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight2 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube2HitBird){
-      birdHit.play()
+      clickSoundHit()
       gameState=1
       birdFlap.volume=0
       gravity=0
@@ -294,7 +304,7 @@ function render(){
    if (isTube3ReachBird) {
      const isTube3HitBird = tubeHeight3-birdHeight/4 > birdY || birdY + birdHeight-birdHeight/4 > tubeHeight3 + distance // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная 
      if(isTube3HitBird){
-      birdHit.play()
+      clickSoundHit()
       gameState=1
       birdFlap.volume=0
       gravity=0
