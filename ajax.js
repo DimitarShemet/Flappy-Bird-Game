@@ -41,7 +41,7 @@ restoreInfo()
 	
 	for (let elem of subArr) {
 		let td = document.createElement('td');
-        td.style.padding=5+"px"
+        td.style.padding=mapWidth/250+"px"
 		td.innerHTML = elem
 		tr.appendChild(td)
 	}
