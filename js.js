@@ -1,10 +1,14 @@
 
   let gameState=1 // 0-игра, 1-пауза
   let start=document.getElementById('start')
- start.addEventListener('click',play,false)
- 
+  let tableRecords=document.getElementById("tableRecords")
+  let addResult=document.getElementById("addResult")
+  start.addEventListener('click',play,false)
+ addResult.style.display="none"
  function play(){
   start.style.display="none"
+  tableRecords.style.display="none"
+  addResult.style.display="none"
    gameState=0
     birdX=mapWidth/10
     birdY=innerHeight/2
@@ -102,7 +106,7 @@ function birdup(){
      }
      if(angle>-20){
      angle=angle-0.6
-     console.log(angle)
+    
      }
      if(angle<=-20){
        clearInterval(timer)
@@ -159,7 +163,7 @@ function birdup(){
      }
      if(angle>-20){
      angle=angle-0.6
-     console.log(angle)
+    
      }
      if(angle<=-20){
        clearInterval(timer)
@@ -168,18 +172,19 @@ function birdup(){
     gravity=gravity-mapHeight/140
     birdFlap.volume=0.03
     birdFlap.play()
-    
-   
   }
-    
   }      
- 
+ function showInputs(){
+  start.style.display="block"
+  tableRecords.style.display="block"
+  addResult.style.display="block"
+ }
 setInterval(render,1000/60)
                            
 
 function render(){
        if(gameState==0){
-  
+
   
 
     //Рисуем карту
@@ -263,7 +268,7 @@ function render(){
       gameState=1
       birdFlap.volume=0
       gravity=0
-      start.style.display="block"
+      showInputs()
     
    } 
    if(birdY<0){     // параметры для потолка
@@ -281,8 +286,7 @@ function render(){
        gameState=1
        birdFlap.volume=0
        gravity=0
-       start.style.display="block"
-    
+       showInputs()
      }
    }
  
@@ -295,7 +299,7 @@ function render(){
       gameState=1
       birdFlap.volume=0
       gravity=0
-      start.style.display="block"
+      showInputs()
      }
    }
 
@@ -308,7 +312,7 @@ function render(){
       gameState=1
       birdFlap.volume=0
       gravity=0
-      start.style.display="block"
+      showInputs()
      }
    
    }
