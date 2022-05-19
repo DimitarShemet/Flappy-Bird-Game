@@ -1,4 +1,4 @@
-var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+var ajaxHandlerScript="http://fe.it-academy.by/AjaxStringStorage2.php";
 var updatePassword;
 var stringName='SHEMET_FLAPPYBIRD_TABLEOFRECORDS';       // Добавить  строку на сервер
 let info           // Основной массив
