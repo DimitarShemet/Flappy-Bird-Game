@@ -33,7 +33,8 @@ restoreInfo()
 
  let table = document.getElementById('table');
 
- function buildTable(){   // Функция, которая построит таблицу из массива
+ function buildTable(){      // Функция, которая построит таблицу из массива
+    info.sort((a, b) => a[1] > b[1] ? -1 : 1);  
    let array= info
 	for (let subArr of array) {
 	let tr = document.createElement('tr');
@@ -46,19 +47,21 @@ restoreInfo()
 	}
 	table.appendChild(tr)
 }
-	
+
+
 }
 
-function addScore(){    // Функция, которая добавит имя и результат  в таблицу           
+function addScore(){        // Функция, которая добавит имя и результат  в таблицу   
+    let userScore=score     
+    if(userScore<=info[info.length-1][1]){                  
+        alert("Слабоватый результат. Ты можешь лучше!")  
+        return 
+        }                      
     let userName=prompt('Введите свое имя')
-    let userScore=score  
-    if(userScore<=info[info.length-1][1]){
-    alert("Слишком слабый результат. Ты можешь лучше!")  
-    return 
-    }
     let scoreArray=[userName,userScore]        
-    info.push(scoreArray)             //Заносим данные в исходный массив
-    info.sort((a, b) => a[1] > b[1] ? -1 : 1);           
+    info.push(scoreArray)     //Заносим данные в исходный массив
+    info.sort((a, b) => a[1] > b[1] ? -1 : 1); 
+    info.pop()        
     storeInfo()
    
 }
