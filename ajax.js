@@ -20,9 +20,9 @@ function readReady(callresult) {
     if ( callresult.error!=undefined )
         alert(callresult.error);
     else if ( callresult.result!="" ) {
-        info=JSON.parse(callresult.result);
-        let array=info;
-        return(array)
+        info=JSON.parse(callresult.result);  
+        info.sort((a, b) => a[1] > b[1] ? -1 : 1);
+        info.length=10
     }
 }
 
@@ -35,8 +35,6 @@ restoreInfo()
 
  function buildTable(){   // Функция, которая построит таблицу из массива
    let array= info
-   array.length=10
-       array.sort((a, b) => a[1] > b[1] ? -1 : 1);
 	for (let subArr of array) {
 	let tr = document.createElement('tr');
 	
@@ -45,7 +43,6 @@ restoreInfo()
         td.style.padding=mapWidth/250+"px"
 		td.innerHTML = elem
 		tr.appendChild(td)
-        
 	}
 	table.appendChild(tr)
 }
@@ -54,9 +51,14 @@ restoreInfo()
 
 function addScore(){    // Функция, которая добавит имя и результат  в таблицу           
     let userName=prompt('Введите свое имя')
-    let userScore=score      
+    let userScore=score  
+    if(userScore<=info[info.length-1][1]){
+    alert("Слишком слабый результат. Ты можешь лучше!")  
+    return 
+    }
     let scoreArray=[userName,userScore]        
-    info.push(scoreArray)                  //Заносим данные в исходный массив
+    info.push(scoreArray)             //Заносим данные в исходный массив
+    info.sort((a, b) => a[1] > b[1] ? -1 : 1);           
     storeInfo()
    
 }
