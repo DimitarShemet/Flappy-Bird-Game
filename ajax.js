@@ -56,12 +56,17 @@ function addScore(){        // Функция, которая добавит и�
     if(userScore<=info[info.length-1][1]){                  
         alert("Слабоватый результат. Ты можешь лучше!")  
         return 
-        }                      
-    let userName=prompt('Введите свое имя')
+        }     
+                    
+     let userName
+    do{
+         userName=prompt('Введите свое имя')
+    }
+    while (userName===null || userName==='');
+    info.pop()  
     let scoreArray=[userName,userScore]        
     info.push(scoreArray)     //Заносим данные в исходный массив
-    info.sort((a, b) => a[1] > b[1] ? -1 : 1); 
-    info.pop()        
+    info.sort((a, b) => a[1] > b[1] ? -1 : 1);       
     storeInfo()
    
 }

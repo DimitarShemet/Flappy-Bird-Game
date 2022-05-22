@@ -91,9 +91,6 @@ let mapHeight=canvas.height
   
     
    // Обработчики событий для птицы
- 
-
-
 canvas.addEventListener("touchstart",birdup,false)
  
 function birdup(){
@@ -116,7 +113,30 @@ function birdup(){
   birdFlap.play()
   gravity=gravity-mapHeight/1240
 }
-}    
+}   
+canvas.addEventListener("click",birdUp,false)
+  function birdUp(){
+    if(gameState===0){
+   
+    let timer=setInterval(birdRotate,1000/120)
+    function birdRotate(){
+     
+      if(angle>=-10){
+       angle=angle-2
+     }
+     if(angle>-20){
+     angle=angle-0.6
+    
+     }
+     if(angle<=-20){
+       clearInterval(timer)
+     }
+    }
+    gravity=gravity-mapHeight/140
+    birdFlap.volume=0.03
+    birdFlap.play()
+  }
+  }       
    
    // Звуки
    
@@ -144,36 +164,7 @@ function birdup(){
      
      let sunX1=0
      let sunX2=mapWidth-sunWidth
-    
-    
-     
 
- 
- 
-
-  canvas.addEventListener("click",birdUp,false)
-  function birdUp(){
-    if(gameState===0){
-   
-    let timer=setInterval(birdRotate,1000/120)
-    function birdRotate(){
-     
-      if(angle>=-10){
-       angle=angle-2
-     }
-     if(angle>-20){
-     angle=angle-0.6
-    
-     }
-     if(angle<=-20){
-       clearInterval(timer)
-     }
-    }
-    gravity=gravity-mapHeight/140
-    birdFlap.volume=0.03
-    birdFlap.play()
-  }
-  }      
  function showInputs(){
   start.style.display="block"
   tableRecords.style.display="block"
