@@ -22,7 +22,7 @@ function switchToStateFromURLHash() {
         pageHTML+="<p>Мы круты!</p>";
         break;
         case 'Records':
-            pageHTML+=" "+buildTable()    
+            pageHTML+=buildTable()    
             break;
 
     }
