@@ -10,25 +10,35 @@ function switchToStateFromURLHash() {
     
      else
     SPAState={pagename:'Main'}
-
+    let tableRecords=document.getElementById('tableRecords')
     var pageHTML="";
     switch ( SPAState.pagename ) {
       case 'Main':
+        document.body.style.minWidth=100+"vw"
+        document.body.style.minHeight=100+"vh"
+        document.body.style.backgroundImage = "url('startScreen.jpg')"
+        tableRecords.style.display="none"
         pageHTML+="<h3>Главная страница</h3>";
-        pageHTML+="<p>Щёлкайте по кнопкам!</p>";
         break;
       case 'About':
         pageHTML+="<h3>О нас</h3>";
         pageHTML+="<p>Мы круты!</p>";
+        tableRecords.style.display="none"
         break;
         case 'Records':
-            pageHTML+=buildTable()    
+          tableRecords.style.display="block"
+          document.body.style.minWidth=100+"vw"
+          document.body.style.minHeight=100+"vh"
+          document.body.style.backgroundImage = "url('records.png')";
             break;
-
     }
 document.getElementById('IPage').innerHTML=pageHTML
 console.log(pageHTML)
+
+
 }
+//let inputRecords=document.getElementById('records')
+ //inputRecords.style.width=400+"px"
 
 function switchToState(newState) {
     // устанавливаем закладку УРЛа
