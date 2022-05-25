@@ -8,6 +8,7 @@
   start.addEventListener('click',play,false)
  addResult.style.display="none"
  function play(){
+  canvas.style.display="block"
  let inputs=document.getElementsByTagName('input')
 for(let i=0; i<inputs.length;i++){
   inputs[i].style.display="none"

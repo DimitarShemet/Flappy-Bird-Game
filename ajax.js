@@ -47,8 +47,6 @@ restoreInfo()
 	}
 	table.appendChild(tr)
 }
-
-
 }
 
 function addScore(){        // Функция, которая добавит имя и результат  в таблицу   

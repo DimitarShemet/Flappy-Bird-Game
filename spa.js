@@ -17,7 +17,7 @@ function switchToStateFromURLHash() {
         document.body.style.backgroundAttachment="fixed"
           document.body.style.backgroundSize=100+"%"+100+"%"
           document.body.style.backgroundImage = "url('start.jpg')";
-        tableRecords.style.display="none"
+       
         break;
       case 'About':
       
@@ -51,15 +51,18 @@ function switchToState(newState) {
 
   function switchToMainPage() {
     switchToState( { pagename:'Main' } );
+    canvas.style.display="none"
   }
 
 
   function switchToAboutPage() {
     switchToState( { pagename:'About' } );
+    canvas.style.display="none"
 
   }
   function switchToRecordsPage() {
     switchToState( { pagename:'Records' } );
+    canvas.style.display="none"
 
   }
   // переключаемся в состояние, которое сейчас прописано в закладке УРЛ
