@@ -1,0 +1,20 @@
+html{
+    overflow: hidden;
+}
+   
+
+
+
+button{
+  position: absolute;
+}
+#tableRecords{
+  display: none;
+}
+#main{
+  color: red;
+}
+
+body{
+  z-index: 5;
+}

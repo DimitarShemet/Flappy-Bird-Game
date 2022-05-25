@@ -1,14 +1,17 @@
 
   let gameState=1 // 0-игра, 1-пауза
+
+
   let start=document.getElementById('start')
   let tableRecords=document.getElementById("tableRecords")
   let addResult=document.getElementById("addResult")
   start.addEventListener('click',play,false)
  addResult.style.display="none"
  function play(){
-  start.style.display="none"
-  tableRecords.style.display="none"
-  addResult.style.display="none"
+ let inputs=document.getElementsByTagName('input')
+for(let i=0; i<inputs.length;i++){
+  inputs[i].style.display="none"
+}
    gameState=0
     birdX=mapWidth/10
     birdY=innerHeight/2
@@ -166,10 +169,11 @@ canvas.addEventListener("click",birdUp,false)
      let sunX2=mapWidth-sunWidth
 
  function showInputs(){
-  start.style.display="block"
-  tableRecords.style.display="block"
-  addResult.style.display="block"
+  let inputs=document.getElementsByTagName('input')
+  for(let i=0; i<inputs.length;i++){
+    inputs[i].style.display="inline"
  }
+}
 setInterval(render,1000/60)
                            
 

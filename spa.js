@@ -10,30 +10,27 @@ function switchToStateFromURLHash() {
     
      else
     SPAState={pagename:'Main'}
+    table.style.display="none"
     let tableRecords=document.getElementById('tableRecords')
-    var pageHTML="";
     switch ( SPAState.pagename ) {
       case 'Main':
-        document.body.style.minWidth=100+"vw"
-        document.body.style.minHeight=100+"vh"
-        document.body.style.backgroundImage = "url('startScreen.jpg')"
+        document.body.style.backgroundAttachment="fixed"
+          document.body.style.backgroundSize=100+"%"+100+"%"
+          document.body.style.backgroundImage = "url('start.jpg')";
         tableRecords.style.display="none"
-        pageHTML+="<h3>Главная страница</h3>";
         break;
       case 'About':
-        pageHTML+="<h3>О нас</h3>";
-        pageHTML+="<p>Мы круты!</p>";
+      
         tableRecords.style.display="none"
         break;
         case 'Records':
-          tableRecords.style.display="block"
-          document.body.style.minWidth=100+"vw"
-          document.body.style.minHeight=100+"vh"
+          table.style.display="block"
+          buildTable()
+          tableRecords.style.display="inline"
           document.body.style.backgroundImage = "url('records.png')";
             break;
     }
-document.getElementById('IPage').innerHTML=pageHTML
-console.log(pageHTML)
+
 
 
 }

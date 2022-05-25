@@ -5,33 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="reset.css">
-    <style>
-        html{
-            overflow: hidden;
-        }
-      button{
-          position: absolute;
-      }
-      #tableRecords{
-          display: none;
-
-      }
-
-        
-    </style>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div id="IPage"></div>
-    <input type=button value='Главная' onclick='switchToMainPage()'><br>
-    <input type=button value='Таблица рекордов' onclick='switchToRecordsPage()'><br>
-    <input type=button value='О нас' onclick='switchToAboutPage()'><br>
-    <table id="table"></table>
+
+    
+    <input type=button value='Главная' onclick='switchToMainPage()'>
+    <input type=button value='Таблица рекордов' onclick='switchToRecordsPage()'>
+    <input type=button value='О нас' onclick='switchToAboutPage()'>
     <input type="button" value="Посмотреть таблицу рекордов" onclick="buildTable()" id="tableRecords">
     <input type="button" value="Добавить результат в таблицу рекордов" onclick="addScore()" id="addResult">
-    <button id="start">Начать игру?</button>
+    <input id="start" type="button" value="Начать игру"></input>
+    <table id="table"></table>
+   
     <canvas  id="canvas"> </canvas>
-
+    
 <script src="js.js"></script>
 <script src="https://fe.it-academy.by/JQ/jquery.js"></script>
 <script src="ajax.js"></script>
