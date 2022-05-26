@@ -5,7 +5,7 @@ let info           // Основной массив
 
 
 
-function restoreInfo() {                    // Функция чтения таблицы из строки на сервере
+function restoreInfo() {                    // Функция чтения  строки на сервере
     $.ajax(
         {
             url : ajaxHandlerScript, type : 'POST', cache : false, dataType:'json',
@@ -46,6 +46,7 @@ restoreInfo()
 		tr.appendChild(td)
 	}
 	table.appendChild(tr)
+    console.log(info)
 }
 }
 

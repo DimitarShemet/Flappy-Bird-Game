@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body id=IPage>
 
-    
+   
     <input type=button value='Главная' onclick='switchToMainPage()'>
-    <input type=button value='Таблица рекордов' onclick='switchToRecordsPage()'>
+    <input type=button value='Таблица рекордов' onclick='switchToRecordsPage()' id="TABLE">
     <input type=button value='О нас' onclick='switchToAboutPage()'>
     <input type="button" value="Посмотреть таблицу рекордов" onclick="buildTable()" id="tableRecords">
     <input type="button" value="Добавить результат в таблицу рекордов" onclick="addScore()" id="addResult">

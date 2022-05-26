@@ -12,30 +12,36 @@ function switchToStateFromURLHash() {
     SPAState={pagename:'Main'}
     table.style.display="none"
     let tableRecords=document.getElementById('tableRecords')
+    let pageHTML="";
     switch ( SPAState.pagename ) {
       case 'Main':
+        pageHTML+="<h3 id='main'>Главная страница</h3>";
+        let records= document.getElementById('TABLE')
+        pageHTML+=records
         document.body.style.backgroundAttachment="fixed"
-          document.body.style.backgroundSize=100+"%"+100+"%"
-          document.body.style.backgroundImage = "url('start.jpg')";
-       
+        document.body.style.backgroundSize="contain";
+        document.body.style.backgroundRepeat="round"
+        document.body.style.backgroundImage = "url('background.png')"
         break;
       case 'About':
       
         tableRecords.style.display="none"
         break;
         case 'Records':
-          table.style.display="block"
-          buildTable()
+          pageHTML+="<h3>Рекорды</h3>";
+         
           tableRecords.style.display="inline"
           document.body.style.backgroundImage = "url('records.png')";
+          document.body.style.backgroundAttachment="fixed"
+          document.body.style.backgroundSize="contain";
+          document.body.style.backgroundRepeat="round"
             break;
     }
-
-
-
+    document.getElementById('IPage').innerHTML=pageHTML;
+    
 }
-//let inputRecords=document.getElementById('records')
- //inputRecords.style.width=400+"px"
+
+
 
 function switchToState(newState) {
     // устанавливаем закладку УРЛа
@@ -68,3 +74,4 @@ function switchToState(newState) {
   // переключаемся в состояние, которое сейчас прописано в закладке УРЛ
   switchToStateFromURLHash();
 
+ 
