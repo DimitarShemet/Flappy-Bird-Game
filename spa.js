@@ -20,6 +20,7 @@ function switchToStateFromURLHash() {
   table.style.display = "none";
   let buildTable=document.getElementById('tableRecords')
   document.body.prepend(buildTable)
+  let startMenu=document.getElementById("startMenu")
   
   
   
@@ -34,6 +35,9 @@ function switchToStateFromURLHash() {
       document.body.style.backgroundRepeat="round"
       mainScreen.innerHTML = "<h3>Главная</h3>"
       buildTable.style.display="none"
+      addResult.style.display="none"
+      start.style.display="none"
+      startMenu.style.display="inline"
       break;
     case "About":
       mainScreen.innerHTML=""
@@ -44,6 +48,9 @@ function switchToStateFromURLHash() {
       document.body.style.backgroundAttachment="fixed"
       document.body.style.backgroundSize="contain"
       document.body.style.backgroundRepeat="round"
+      start.style.display="none"
+      addResult.style.display="none"
+      startMenu.style.display="inline"
       break;
     case "Records":
       mainScreen.innerHTML = "";
@@ -55,17 +62,22 @@ function switchToStateFromURLHash() {
       document.body.style.backgroundAttachment="fixed"
       document.body.style.backgroundSize="contain";
       document.body.style.backgroundRepeat="round"
+      start.style.display="none"
+      addResult.style.display="none"
+      startMenu.style.display="inline"
       break;
       case "Play":
         mainScreen.innerHTML=""
         aboutScreen.innerHTML=""
         recordsScreen.innerHTML=""
         buildTable.style.display = "none";
-        playScreen.innerHTML="<h3>Готовы начать игру?</h3>";
         document.body.style.backgroundImage = "url('play.gif')";
         document.body.style.backgroundAttachment="fixed"
         document.body.style.backgroundSize="contain";
         document.body.style.backgroundRepeat="round"
+        start.style.display="inline"
+        startMenu.style.display="none"
+        
         break;
   
   }
@@ -103,7 +115,15 @@ function switchToRecordsPage() {
 }
 function switchToPlayPage() {
   switchToState({ pagename: "Play" });
-  
+  canvas.style.display = "none";
+  document.body.style.backgroundImage = "url('play.gif')";
+  document.body.style.backgroundAttachment="fixed"
+  document.body.style.backgroundSize="contain"
+  document.body.style.backgroundRepeat="round"
+  start.style.display="inline"
+  tableRecords.style.display="none"
+  addResult.style.display="none"
+  startMenu.style.display="none"
 }
 // переключаемся в состояние, которое сейчас прописано в закладке УРЛ
 switchToStateFromURLHash();

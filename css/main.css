@@ -2,19 +2,49 @@ html{
     overflow: hidden;
 }
    
-
-
-
 button{
   position: absolute;
 }
 #tableRecords{
   display: none;
 }
-#main{
- 
+
+#start{
+  position: absolute;
+  left: 0; right: 0; margin: auto;
+   bottom: 0;
+  cursor: pointer;
+    border-color: #3498db;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+    transition: all 350ms ease-in-out;
+    background-color: transparent;
+    border-radius: 0.6em;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 1.2em 2.8em;
+    font-weight: 700;
+}
+#start:hover {
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+#start:focus{
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+#start {
+  animation-duration: 2s;
+  animation-name: slidein;
 }
 
-body{
-  z-index: 5;
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
+  

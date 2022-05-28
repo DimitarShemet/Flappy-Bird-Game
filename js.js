@@ -1,11 +1,11 @@
 
   let gameState = 1; // 0-игра, 1-пауза
-
   let start = document.getElementById("start");
-  let tableRecords = document.getElementById("tableRecords");
   let addResult = document.getElementById("addResult");
+  addResult.style.display="none"
   start.addEventListener("click", play, false);
-  addResult.style.display = "none";
+  start.style.display="none"
+  addResult.style.display = "none"
   function play() {
     document.body.style.backgroundImage="none"
     canvas.style.display = "block";
@@ -158,6 +158,7 @@
     let inputs = document.getElementsByTagName("input");
     for (let i = 0; i < inputs.length; i++) {
       inputs[i].style.display = "inline";
+      inputs[0].style.display="none"
     }
   }
   setInterval(render, 1000 / 60);
