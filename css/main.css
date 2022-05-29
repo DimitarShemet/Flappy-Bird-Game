@@ -34,6 +34,7 @@ button{
           -webkit-align-self: center;
               -ms-flex-item-align: center;
                   align-self: center;
+                  
 }
 #start:hover {
   box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
@@ -71,6 +72,7 @@ input{
 .wrap__input { 
   display: flex;
   justify-content: center;
+  flex-wrap: nowrap
 }
 .wrap__input input{
   flex: 0 1 180px;
@@ -81,7 +83,7 @@ input{
 }
 
 .wrap__input input:hover{
-  padding-right: 34px;
+  
   
 }
 #tableRecords{
@@ -123,10 +125,11 @@ input{
 
 @media only all and (max-width:800px){
   .wrap__input {
-  flex-direction: column;
+    display: block;
+    text-align: center;
     }
   .wrap__input input{
-    flex:  0 0 56px;
-    margin: 10px;
+    width: 39%;
+    margin: 20px;
   }
   }
