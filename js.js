@@ -158,7 +158,7 @@
     let inputs = document.getElementsByTagName("input");
     for (let i = 0; i < inputs.length; i++) {
       inputs[i].style.display = "inline";
-      inputs[0].style.display="none"
+      inputs[inputs.length-1].style.display="none"
     }
   }
   setInterval(render, 1000 / 60);

@@ -24,7 +24,9 @@ button{
     line-height: 1;
     padding: 1.2em 2.8em;
     font-weight: 700;
-    appearance: none;
+    -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 #start:hover {
   box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
@@ -49,13 +51,7 @@ button{
   }
 }
 input{
-  display: inline-block;
-}
-.input__wrap { 
-  text-align: center;
-}
-.input__wrap input{
- color: white;
+  color: white;
  font-family: 'Source Sans Pro', sans-serif;
  font-weight: 600;
   border-radius: 4px;
@@ -64,14 +60,66 @@ input{
   text-align: center;
   font-size: 15px;
   padding: 16px;
-  width: 150px;
+}
+.wrap__input { 
+  display: flex;
+  justify-content: center;
+}
+.wrap__input input{
+  flex: 0 1 180px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 36px;
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
 }
 
-.input__wrap input:hover{
-  padding-right: 24px;
-  padding-left:8px;
+.wrap__input input:hover{
+  padding-right: 34px;
+  
 }
+#tableRecords{
+  background-color: #EF9C00 ;
+  border-radius: 0.6em;
+  animation-duration: 4s;
+  animation-name: showInput;
+  position: absolute;
+  color: black;
+  width: 180px;
+  }
+  table{
+    width: 180px;
+    margin: auto;
+  
+  
+  }
+  
+  @keyframes showInput {
+    from {
+      transform: rotate(0) scale(.5);
+      left: 120%;
+      color: black
+    }
+  
+    50% {
+      transform: rotate(-720deg) scale(.5);
+      left: 1%;
+      color: white;
+    }
+  
+    to {
+      transform: rotate(0) scale(1);
+      color: black;
+    }
+  }
+  
+ 
+
+@media only all and (max-width:800px){
+  .wrap__input {
+  flex-direction: column;
+    }
+  .wrap__input input{
+    flex:  0 0 56px;
+    margin: 10px;
+  }
+  }

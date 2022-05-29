@@ -1,6 +1,9 @@
 window.onhashchange = switchToStateFromURLHash;
 let SPAState = {};
-
+let mainButton=document.getElementById('main')
+let tableInput=document.getElementById('tableRecords')
+ 
+  let startMenu=document.getElementById("startMenu")
 function switchToStateFromURLHash() {
   let URLHash = window.location.hash;
   let stateStr = URLHash.substr(1);
@@ -18,12 +21,8 @@ function switchToStateFromURLHash() {
 
   // Настройки динамических элементов
   table.style.display = "none";
-  let buildTable=document.getElementById('tableRecords')
-  document.body.prepend(buildTable)
-  let startMenu=document.getElementById("startMenu")
-  let mainButton=document.getElementById('main')
   
-  
+
   
   switch (SPAState.pagename) {
     case "Main":
@@ -35,9 +34,8 @@ function switchToStateFromURLHash() {
       document.body.style.backgroundSize="contain";
       document.body.style.backgroundRepeat="round"
       mainScreen.innerHTML = "<h3>Главная</h3>"
-      buildTable.style.display="none"
+      tableInput.style.display="none"
       addResult.style.display="none"
-      start.style.display="none"
       mainButton.style.color="red"
       startMenu.style.display="inline"
       break;
@@ -45,7 +43,7 @@ function switchToStateFromURLHash() {
       mainScreen.innerHTML=""
       recordsScreen.innerHTML=""
       playScreen.innerHTML=""
-      buildTable.style.display = "none";
+      tableInput.style.display = "none";
       document.body.style.backgroundImage = "url('about.png')"
       document.body.style.backgroundAttachment="fixed"
       document.body.style.backgroundSize="contain"
@@ -58,8 +56,9 @@ function switchToStateFromURLHash() {
       mainScreen.innerHTML = "";
       playScreen.innerHTML=""
       aboutScreen.innerHTML=""
-      recordsScreen.innerHTML += "<h3>Рекорды</h3>";
-      buildTable.style.display="inline"
+      tableInput.style.display="block"
+      tableInput.style.height=61+"px"
+
       document.body.style.backgroundImage = "url('records.png')";
       document.body.style.backgroundAttachment="fixed"
       document.body.style.backgroundSize="contain";
@@ -72,13 +71,12 @@ function switchToStateFromURLHash() {
         mainScreen.innerHTML=""
         aboutScreen.innerHTML=""
         recordsScreen.innerHTML=""
-        buildTable.style.display = "none";
+        tableInput.style.display = "none";
         document.body.style.backgroundImage = "url('play.gif')";
         document.body.style.backgroundAttachment="fixed"
         document.body.style.backgroundSize="contain";
         document.body.style.backgroundRepeat="round"
         start.style.display="inline"
-        startMenu.style.display="none"
         
         break;
   
@@ -124,9 +122,8 @@ function switchToPlayPage() {
   document.body.style.backgroundSize="contain"
   document.body.style.backgroundRepeat="round"
   start.style.display="inline"
-  tableRecords.style.display="none"
+  tableInput.style.display="none"
   addResult.style.display="none"
-  startMenu.style.display="none"
 }
 // переключаемся в состояние, которое сейчас прописано в закладке УРЛ
 switchToStateFromURLHash();

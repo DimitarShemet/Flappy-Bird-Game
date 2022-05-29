@@ -10,16 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="input__wrap">
+<div class="wrap__input">
     <input type=button value='Главная' onclick='switchToMainPage()' id="main">
     <input type=button value='Таблица рекордов' onclick='switchToRecordsPage()' id="TABLE">
     <input type=button value='О нас' onclick='switchToAboutPage()'>
     <input type=button value='На старт!' onclick='switchToPlayPage()' id="startMenu">
-    <input type="button" value="Посмотреть таблицу рекордов" onclick="buildTable()" id="tableRecords">
     <input type="button" value="Добавить результат в таблицу рекордов" onclick="addScore()" id="addResult">
 </div>
     <input id="start" type="button" value="Полетели!"></input>
-
+    <input type="button" value="Посмотреть таблицу" onclick="buildTable()" id="tableRecords">
     <table id="table"></table>
     <div id="mainScreen"></div>
     <div id="aboutScreen"></div>
