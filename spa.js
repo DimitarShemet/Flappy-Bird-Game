@@ -21,6 +21,7 @@ function switchToStateFromURLHash() {
   let buildTable=document.getElementById('tableRecords')
   document.body.prepend(buildTable)
   let startMenu=document.getElementById("startMenu")
+  let mainButton=document.getElementById('main')
   
   
   
@@ -37,6 +38,7 @@ function switchToStateFromURLHash() {
       buildTable.style.display="none"
       addResult.style.display="none"
       start.style.display="none"
+      mainButton.style.color="red"
       startMenu.style.display="inline"
       break;
     case "About":
@@ -100,7 +102,8 @@ function switchToState(newState) {
 
 function switchToMainPage() {
   switchToState({ pagename: "Main" });
-  canvas.style.display = "none";
+  canvas.style.display = "none"
+  mainButton.style.color="red"
 }
 
 function switchToAboutPage() {
