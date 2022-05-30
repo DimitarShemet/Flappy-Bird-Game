@@ -61,6 +61,7 @@ input{
 .wrap__input { 
   display: flex;
   justify-content: center;
+ 
 }
 .wrap__input input{
   flex: 0 1 180px;
@@ -77,35 +78,42 @@ input{
 #tableRecords{
   background-color: #EF9C00 ;
   border-radius: 0.6em;
-  animation-duration: 4s;
+  animation-duration: 3s;
   animation-name: showInput;
-  position: absolute;
   color: black;
-  width: 180px;
+  width: 175px;
+  margin-left: 0%;
   }
   table{
-    width: 180px;
+    width: 173px;
+  }
+  td, tr{
+    padding: 3px; 
+    border: 1px solid black; 
+    text-align: center;
+  }
+  .wrap__table{
+    width: 200px;
     margin: auto;
-  
-  
+
   }
   
   @keyframes showInput {
     from {
       transform: rotate(0) scale(.5);
-      left: 120%;
+    margin-left: 520%;
       color: black
     }
   
     50% {
       transform: rotate(-720deg) scale(.5);
-      left: 1%;
       color: white;
     }
   
     to {
       transform: rotate(0) scale(1);
       color: black;
+      margin-left: 0%;
     }
   }
   

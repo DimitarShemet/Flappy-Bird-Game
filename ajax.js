@@ -53,7 +53,7 @@ function buildTable() {
       tr.appendChild(td);
     }
     table.appendChild(tr);
-    table.style.display = "block";
+    table.style.display = "table";
   }
 }
 
