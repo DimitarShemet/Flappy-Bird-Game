@@ -77,7 +77,7 @@ input{
 }
 #tableRecords{
   background-color: #EF9C00 ;
-  border-radius: none;
+  border-radius: 1px;
   animation-duration: 3s;
   animation-name: showInput;
   color: black;
