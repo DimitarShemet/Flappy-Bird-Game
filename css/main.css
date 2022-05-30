@@ -77,21 +77,23 @@ input{
 }
 #tableRecords{
   background-color: #EF9C00 ;
-  border-radius: 0.6em;
+  border-radius: none;
   animation-duration: 3s;
   animation-name: showInput;
   color: black;
-  width: 175px;
+  width: 173px;
   margin-left: 0%;
   }
   table{
     width: 173px;
+    margin-top: -2px;
   }
   td, tr{
     padding: 3px; 
-    border: 1px solid black; 
+    border: 2px solid black; 
     text-align: center;
   }
+  td{}
   .wrap__table{
     width: 200px;
     margin: auto;
