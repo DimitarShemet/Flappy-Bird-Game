@@ -1,9 +1,11 @@
 window.onhashchange = switchToStateFromURLHash;
 let SPAState = {};
 let mainButton=document.getElementById('main')
+let recordsButton=document.getElementById('records')
+let about=document.getElementById('about')
+let startMenu=document.getElementById("startMenu")
+  
 let tableInput=document.getElementById('tableRecords')
- 
-  let startMenu=document.getElementById("startMenu")
 function switchToStateFromURLHash() {
   let URLHash = window.location.hash;
   let stateStr = URLHash.substr(1);
@@ -36,10 +38,31 @@ function switchToStateFromURLHash() {
       mainScreen.innerHTML = "<h3>Главная</h3>"
       tableInput.style.display="none"
       addResult.style.display="none"
-      mainButton.style.color="red"
       startMenu.style.display="inline"
+      mainButton.style.color="#3498db"
+      recordsButton.style.color="white"
+      startMenu.style.color="white"
+      about.style.color="white"
       break;
-    case "About":
+    case "Records":
+      mainScreen.innerHTML = "";
+      playScreen.innerHTML=""
+      aboutScreen.innerHTML=""
+      tableInput.style.display="block"
+      tableInput.style.height=61+"px"
+      document.body.style.backgroundImage = "url('records.png')";
+      document.body.style.backgroundAttachment="fixed"
+      document.body.style.backgroundSize="contain";
+      document.body.style.backgroundRepeat="round"
+      start.style.display="none"
+      addResult.style.display="none"
+      startMenu.style.display="inline"
+      recordsButton.style.color="#3498db"
+      startMenu.style.color="white"
+      about.style.color="white"
+      mainButton.style.color="white"
+      break;
+      case "About":
       mainScreen.innerHTML=""
       recordsScreen.innerHTML=""
       playScreen.innerHTML=""
@@ -51,21 +74,10 @@ function switchToStateFromURLHash() {
       start.style.display="none"
       addResult.style.display="none"
       startMenu.style.display="inline"
-      break;
-    case "Records":
-      mainScreen.innerHTML = "";
-      playScreen.innerHTML=""
-      aboutScreen.innerHTML=""
-      tableInput.style.display="block"
-      tableInput.style.height=61+"px"
-
-      document.body.style.backgroundImage = "url('records.png')";
-      document.body.style.backgroundAttachment="fixed"
-      document.body.style.backgroundSize="contain";
-      document.body.style.backgroundRepeat="round"
-      start.style.display="none"
-      addResult.style.display="none"
-      startMenu.style.display="inline"
+      about.style.color="#3498db"
+      mainButton.style.color="white"
+      recordsButton.style.color="white"
+      startMenu.style.color="white"
       break;
       case "Play":
         mainScreen.innerHTML=""
@@ -77,6 +89,11 @@ function switchToStateFromURLHash() {
         document.body.style.backgroundSize="contain";
         document.body.style.backgroundRepeat="round"
         start.style.display="inline"
+        startMenu.style.color="#3498db"
+        about.style.color="white"
+        recordsButton.style.color="white"
+        mainButton.style.color="white"
+
         
         break;
   
