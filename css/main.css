@@ -25,15 +25,15 @@ button{
     padding: 1.2em 2.8em;
     font-weight: 700;
     -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-      display: -webkit-box;
+    -moz-appearance: none;
+    appearance: none;
+    display: -webkit-box;
      display: -webkit-flex;
     display: -ms-flexbox;
-          display: flex;
-          -webkit-align-self: center;
-              -ms-flex-item-align: center;
-                  align-self: center;
+    display: flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
                   
 }
 #start:hover {
@@ -45,16 +45,16 @@ button{
 #start {
   animation-duration: 2s;
   animation-name: slidein;
+  will-change: transform;
 }
 
 @keyframes slidein {
   from {
-    margin-left: 100%;
-   
+ transform: translateX(100%);
   }
 
   to {
-    margin-left: 0%;
+    transform: none;
    
   }
 }
