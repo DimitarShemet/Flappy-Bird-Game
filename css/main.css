@@ -24,16 +24,7 @@ button{
     line-height: 1;
     padding: 1.2em 2.8em;
     font-weight: 700;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-    display: -webkit-box;
-     display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
     animation-duration: 2s;
     animation-name: slidein;
    
