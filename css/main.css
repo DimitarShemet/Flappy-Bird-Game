@@ -128,4 +128,9 @@ input{
     width: 39%;
     margin: 20px;
   }
+  #tableRecords{
+  
+    animation-duration: 1.5s;
+    
+    }
   }
