@@ -2,12 +2,6 @@ html{
     overflow: hidden;
 }
    
-button{
-  position: absolute;
-}
-#tableRecords{
-  display: none;
-}
 
 #start{
   position: absolute;
@@ -98,6 +92,7 @@ input{
   .wrap__table{
     width: 173px;
     margin: auto;
+    
 
   }
   
