@@ -20,12 +20,7 @@ function switchToStateFromURLHash() {
     SPAState = { pagename: parts[0] }; // номер страницы
   } else SPAState = { pagename: "Main" };
   
-
-  // Настройки динамических элементов
   table.style.display = "none";
-  
-
-  
   switch (SPAState.pagename) {
     case "Main":
       recordsScreen.innerHTML=""
@@ -93,9 +88,20 @@ function switchToStateFromURLHash() {
         about.style.color="white"
         recordsButton.style.color="white"
         mainButton.style.color="white"
-
-        
         break;
+        case "Game":
+        play()
+        mainScreen.innerHTML=""
+        aboutScreen.innerHTML=""
+        recordsScreen.innerHTML=""
+        tableInput.style.display = "none";
+        start.style.display="none"
+        startMenu.style.color="white"
+        about.style.color="white"
+        recordsButton.style.color="white"
+        mainButton.style.color="white"
+        break;
+  
   
   }
   
@@ -118,7 +124,7 @@ function switchToState(newState) {
 function switchToMainPage() {
   switchToState({ pagename: "Main" });
   canvas.style.display = "none"
-  mainButton.style.color="red"
+
 }
 
 function switchToAboutPage() {
@@ -141,6 +147,10 @@ function switchToPlayPage() {
   start.style.display="inline"
   tableInput.style.display="none"
   addResult.style.display="none"
+}
+function switchToGamePage(){
+  switchToState({ pagename: "Game" });
+
 }
 // переключаемся в состояние, которое сейчас прописано в закладке УРЛ
 switchToStateFromURLHash();

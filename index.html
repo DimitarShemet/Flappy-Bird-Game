@@ -17,12 +17,12 @@
     <input type=button value='На старт!' onclick='switchToPlayPage()' id="startMenu">
     <input type="button" value="Добавить результат" onclick="addScore()" id="addResult">
 </div>
-    <input id="start" type="button" value="Полетели!"></input>
+    <input id="start" type="button" value="Полетели!" onclick='switchToGamePage()' ></input>
     <div class="wrap__table">
-    <input type="button" value="Посмотреть таблицу" onclick="buildTable()" id="tableRecords" class="accordion">
+    <input type="button" value="Посмотреть таблицу" onclick="buildTable()" id="tableRecords">
     <table id="table"></table>
     </div>
-    <div id="mainScreen"></div>
+    <div id="mainScreen">Главная</div>
     <div id="aboutScreen"></div>
     <div id="recordsScreen"></div>
     <div id="playScreen"></div>

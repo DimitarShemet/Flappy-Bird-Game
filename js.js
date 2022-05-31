@@ -1,5 +1,5 @@
 
-  let gameState = 1; // 0-игра, 1-пауза
+  let gameState = 0; // 0-пауза, 1-игра
   let start = document.getElementById("start");
   let addResult = document.getElementById("addResult");
   addResult.style.display="none"
@@ -13,7 +13,7 @@
     for (let i = 0; i < inputs.length; i++) {
       inputs[i].style.display = "none";
     }
-    gameState = 0;
+    gameState = 1;
     birdX = mapWidth / 10;
     birdY = innerHeight / 2;
     gravity = 0;
@@ -88,7 +88,7 @@
   canvas.addEventListener("touchstart", birdup, false);
   
   function birdup() {
-    if (gameState === 0) {
+    if (gameState === 1) {
       let timer = setInterval(birdRotate, 1000 / 120);
       function birdRotate() {
         if (angle >= -10) {
@@ -108,7 +108,7 @@
   }
   canvas.addEventListener("click", birdUp, false);
   function birdUp() {
-    if (gameState === 0) {
+    if (gameState === 1) {
       let timer = setInterval(birdRotate, 1000 / 120);
       function birdRotate() {
         if (angle >= -10) {
@@ -165,7 +165,7 @@
   setInterval(render, 1000 / 60);
   
   function render() {
-    if (gameState == 0) {
+    if (gameState == 1) {
       //Рисуем карту
       ctx.fillStyle = "lightblue";
       ctx.fillRect(0, 0, mapWidth, mapHeight);
@@ -240,7 +240,7 @@
       if (birdFell) {
         clickSoundFell();
         window.navigator.vibrate(300);
-        gameState = 1;
+        gameState = 0;
         birdFlap.volume = 0;
         gravity = 0;
         showInputs();
@@ -261,7 +261,7 @@
           birdY + birdHeight - birdHeight / 4 > tubeHeight1 + distance; // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная
         if (isTube1HitBird) {
           clickSoundHit();
-          gameState = 1;
+          gameState = 0;
           birdFlap.volume = 0;
           gravity = 0;
           showInputs();
@@ -277,7 +277,7 @@
           birdY + birdHeight - birdHeight / 4 > tubeHeight2 + distance; // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная
         if (isTube2HitBird) {
           clickSoundHit();
-          gameState = 1;
+          gameState = 0;
           birdFlap.volume = 0;
           gravity = 0;
           showInputs();
@@ -293,7 +293,7 @@
           birdY + birdHeight - birdHeight / 4 > tubeHeight3 + distance; // где birdHeight/4 -погрешность за счёт того, что фигура не идеальная
         if (isTube3HitBird) {
           clickSoundHit();
-          gameState = 1;
+          gameState = 0;
           birdFlap.volume = 0;
           gravity = 0;
           showInputs();
@@ -334,4 +334,9 @@
       }
     }
   }
-  
+  window.onbeforeunload=befUnload;               
+  function befUnload(EO) {
+    EO=EO||window.event;
+    if ( gameState===1)                                  // Если игра активна, то задаем вопрос
+      EO.returnValue='А у вас есть несохранённые изменения!';
+  };
