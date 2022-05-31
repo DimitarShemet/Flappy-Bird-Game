@@ -55,6 +55,7 @@ input{
 .wrap__input { 
   display: flex;
   justify-content: center;
+  
  
 }
 .wrap__input input{
@@ -92,8 +93,6 @@ input{
   .wrap__table{
     width: 173px;
     margin: auto;
-    
-
   }
   
   @keyframes showInput {
