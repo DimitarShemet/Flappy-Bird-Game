@@ -1,12 +1,12 @@
 
   let gameState = 0; // 0-пауза, 1-игра
   let start = document.getElementById("start");
+  let startBird=document.getElementById('bird')
   let addResult = document.getElementById("addResult");
   addResult.style.display="none"
-  start.addEventListener("click", play, false);
   start.style.display="none"
-  addResult.style.display = "none"
   function play() {
+    startBird.style.display="none"
     document.body.style.backgroundImage="none"
     canvas.style.display = "block";
     let inputs = document.getElementsByTagName("input");

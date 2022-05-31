@@ -114,7 +114,19 @@ input{
     }
   }
   
- 
+#bird{
+  background-image: url('../start.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: 35%;
+  left: calc(50% - 125px);
+  width: 280px;
+  height: 250px;
+  cursor: pointer;
+  display: none;
+}
 
 @media only all and (max-width:800px){
   .wrap__input {

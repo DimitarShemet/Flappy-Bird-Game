@@ -4,7 +4,6 @@ let mainButton=document.getElementById('main')
 let recordsButton=document.getElementById('records')
 let about=document.getElementById('about')
 let startMenu=document.getElementById("startMenu")
-  
 let tableInput=document.getElementById('tableRecords')
 function switchToStateFromURLHash() {
   let URLHash = window.location.hash;
@@ -13,6 +12,7 @@ function switchToStateFromURLHash() {
   let aboutScreen=document.getElementById("aboutScreen")
   let recordsScreen = document.getElementById("recordsScreen")
   let playScreen = document.getElementById("recordsScreen")
+  let gameScreen= document.getElementById("gameScreen")
   // Настроки перехода
   if (stateStr != "") {
     // если закладка непустая, читаем из неё состояние и отображаем
@@ -33,11 +33,13 @@ function switchToStateFromURLHash() {
       mainScreen.innerHTML = "<h3>Главная</h3>"
       tableInput.style.display="none"
       addResult.style.display="none"
+      start.style.display="none"
       startMenu.style.display="inline"
       mainButton.style.color="#3498db"
       recordsButton.style.color="white"
       startMenu.style.color="white"
       about.style.color="white"
+      startBird.style.display="none"
       break;
     case "Records":
       mainScreen.innerHTML = "";
@@ -56,6 +58,7 @@ function switchToStateFromURLHash() {
       startMenu.style.color="white"
       about.style.color="white"
       mainButton.style.color="white"
+      startBird.style.display="none"
       break;
       case "About":
       mainScreen.innerHTML=""
@@ -73,6 +76,7 @@ function switchToStateFromURLHash() {
       mainButton.style.color="white"
       recordsButton.style.color="white"
       startMenu.style.color="white"
+      startBird.style.display="none"
       break;
       case "Play":
         mainScreen.innerHTML=""
@@ -88,9 +92,11 @@ function switchToStateFromURLHash() {
         about.style.color="white"
         recordsButton.style.color="white"
         mainButton.style.color="white"
+        startBird.style.display="none"
         break;
         case "Game":
-        play()
+         startBird.style.display="block"
+        startBird.addEventListener('click',play,false)
         mainScreen.innerHTML=""
         aboutScreen.innerHTML=""
         recordsScreen.innerHTML=""
