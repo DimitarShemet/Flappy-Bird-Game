@@ -6,7 +6,6 @@
   addResult.style.display="none"
   start.style.display="none"
   function play() {
-    startBird.style.display="none"
     document.body.style.backgroundImage="none"
     canvas.style.display = "block";
     let inputs = document.getElementsByTagName("input");
@@ -14,6 +13,8 @@
       inputs[i].style.display = "none";
     }
     gameState = 1;
+    startBird.style.display="none"
+  
     birdX = mapWidth / 10;
     birdY = innerHeight / 2;
     gravity = 0;
@@ -156,10 +157,8 @@
   
   function showInputs() {
     let inputs = document.getElementsByTagName("input");
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length-2; i++) {
       inputs[i].style.display = "inline";
-     
-      inputs[inputs.length-1].style.display="none"
     }
   }
   setInterval(render, 1000 / 60);
@@ -332,6 +331,9 @@
         tube5Flag = false;
         birdPass.volume = 0.06;
       }
+      if(gameState==0){
+        startBird.style.display="block"
+      }
     }
   }
   window.onbeforeunload=befUnload;               
@@ -340,3 +342,4 @@
     if ( gameState===1)                                  // Если игра активна, то задаем вопрос
       EO.returnValue='А у вас есть несохранённые изменения!';
   };
+ 

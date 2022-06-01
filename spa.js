@@ -93,6 +93,8 @@ function switchToStateFromURLHash() {
         recordsButton.style.color="white"
         mainButton.style.color="white"
         startBird.style.display="none"
+        canvas.style.display="none"
+        addResult.style.display="none"
         break;
         case "Game":
          startBird.style.display="block"
