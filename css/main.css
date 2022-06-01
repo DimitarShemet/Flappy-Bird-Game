@@ -169,7 +169,7 @@ a{
   display: inline-block;
 }
 #aboutScreen{
-  width: 800px;
+  width: 780px;
   margin: auto;
  
 }
@@ -206,3 +206,10 @@ h2{
 
     }
   }
+  
+@media only all and (max-width:450px){
+  h2{
+    font-size: 12px;
+
+  }
+}
