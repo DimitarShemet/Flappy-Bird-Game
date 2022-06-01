@@ -30,7 +30,10 @@ function switchToStateFromURLHash() {
       document.body.style.backgroundAttachment="fixed"
       document.body.style.backgroundSize="contain";
       document.body.style.backgroundRepeat="round"
-      mainScreen.innerHTML = "<h3>Главная</h3>"
+      //mainScreen
+      mainScreen.innerHTML+="<h1>Welcome to the flappy birds</h1>"
+      mainScreen.innerHTML+="<img src='welcome.png'>"
+
       tableInput.style.display="none"
       addResult.style.display="none"
       start.style.display="none"
@@ -97,6 +100,10 @@ function switchToStateFromURLHash() {
         addResult.style.display="none"
         break;
         case "Game":
+         document.body.style.backgroundImage = "url('game.png')";
+         document.body.style.backgroundAttachment="fixed"
+         document.body.style.backgroundSize="contain";
+         document.body.style.backgroundRepeat="round"
          startBird.style.display="block"
         startBird.addEventListener('click',play,false)
         mainScreen.innerHTML=""

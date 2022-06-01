@@ -83,6 +83,19 @@ input{
   table{
     width: 173px;
     margin-top: -2px;
+    animation-name: showTable;
+    animation-duration: 2s;
+  }
+  @keyframes showTable {
+    from {
+     opacity: 0;
+    }
+  
+    
+  
+    to {
+     opacity: 1;
+    }
   }
   td, tr{
     padding: 3px; 
@@ -127,6 +140,18 @@ input{
   cursor: pointer;
   display: none;
 }
+img{
+  width: 458px;
+  margin: auto;
+  display: block;
+}
+h1{
+  font-family: 'Marck Script', cursive;
+  font-weight: 400;
+  font-size: 64px;
+  text-align: center;
+  margin-top: 100px;
+}
 
 @media only all and (max-width:800px){
   .wrap__input {
@@ -138,8 +163,10 @@ input{
     margin: 20px;
   }
   #tableRecords{
-  
     animation-duration: 2s;
-   
+    }
+    img{
+      width: 420px;
+      
     }
   }

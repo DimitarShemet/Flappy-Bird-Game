@@ -61,7 +61,7 @@ function addScore() {
   // Функция, которая добавит имя и результат  в таблицу
   let userScore = score;
   if (userScore <= info[info.length - 1][1]) {
-    alert("Слабоватый результат. Ты можешь лучше!");
+    alert("Weak result. You can do better!");
     return;
   }
 
