@@ -2,6 +2,7 @@
   let gameState = 0; // 0-пауза, 1-игра
   let start = document.getElementById("start");
   let startBird=document.getElementById('bird')
+  let reload=document.getElementById('reload')
   let addResult = document.getElementById("addResult");
   addResult.style.display="none"
   start.style.display="none"
@@ -14,7 +15,7 @@
     }
     gameState = 1;
     startBird.style.display="none"
-  
+    reload.style.display="none"
     birdX = mapWidth / 10;
     birdY = innerHeight / 2;
     gravity = 0;
@@ -332,7 +333,8 @@
         birdPass.volume = 0.06;
       }
       if(gameState==0){
-        startBird.style.display="block"
+        reload.style.display="block" 
+        
       }
     }
   }
@@ -342,4 +344,3 @@
     if ( gameState===1)                                  // Если игра активна, то задаем вопрос
       EO.returnValue='А у вас есть несохранённые изменения!';
   };
- 

@@ -29,6 +29,13 @@ html{
 #start:focus{
   box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
 }
+#reload{
+  width: 100px;
+  height: 100px;
+  display: none;
+  cursor: pointer;
+  
+}
 
 
 @keyframes slidein {
@@ -128,10 +135,10 @@ input{
 #bird{
  position: absolute;
   cursor: pointer;
-  width: 375px;
-  height: 339px;
-  left: calc(50% - 187.5px);
-  top: calc(50% - 169.5px);
+  width: 282px;
+  height: 255px;
+  left: calc(50% - 141.5px);
+  top: calc(50% - 127.5px);
 }
 img{
   width: 458px;
@@ -199,9 +206,7 @@ h2{
     h2{
       font-size: 16px;
     }
-    #bird{
-    
-    }
+   
   
     
   }
@@ -210,9 +215,6 @@ h2{
 @media only all and (max-width:500px){
   h2{
     font-size: 13px;
-  }
-  #bird{
-
   }
   
 }

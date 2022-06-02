@@ -5,6 +5,7 @@ let recordsButton=document.getElementById('records')
 let about=document.getElementById('about')
 let startMenu=document.getElementById("startMenu")
 let tableInput=document.getElementById('tableRecords')
+tableInput.addEventListener("animationend", buildTable, false);
 function switchToStateFromURLHash() {
   let URLHash = window.location.hash;
   let stateStr = URLHash.substr(1);
@@ -43,6 +44,7 @@ function switchToStateFromURLHash() {
       startMenu.style.color="white"
       about.style.color="white"
       startBird.style.display="none"
+      reload.style.display="none"
       break;
     case "Records":
       mainScreen.innerHTML = "";
@@ -62,6 +64,7 @@ function switchToStateFromURLHash() {
       about.style.color="white"
       mainButton.style.color="white"
       startBird.style.display="none"
+      reload.style.display="none"
       break;
       case "About":
       mainScreen.innerHTML=""
@@ -70,9 +73,7 @@ function switchToStateFromURLHash() {
       aboutScreen.innerHTML+="<h2>Hello, my name is Dmitri Shemet. Welcome to my game. This web application is my final project within the course  'Development of web applications in JavaScript' at IT-Academy. That is my first complete web application.  I really want to improve it, so let's make this game better together.  Below on that page I left  links to my social networks, you can write me  your impressions and  suggestions of any improvements for this game. That's all I wanted to tell you, now start the game! P.S. Try to beat my record :)</h2>"
       aboutScreen.innerHTML+= '<div class="telegram"><a href="https://t.me/DmitriShemet" target="_blank"></a></div>'
       aboutScreen.innerHTML+= '<div class="vk"><a href="https://vk.com/id143649828" target="_blank"> </a></div>'
-      
-     
-  
+
       tableInput.style.display = "none";
       document.body.style.backgroundImage = "url('about.png')"
       document.body.style.backgroundAttachment="fixed"
@@ -86,6 +87,7 @@ function switchToStateFromURLHash() {
       recordsButton.style.color="white"
       startMenu.style.color="white"
       startBird.style.display="none"
+      reload.style.display="none"
       break;
       case "Play":
         mainScreen.innerHTML=""
@@ -104,6 +106,7 @@ function switchToStateFromURLHash() {
         startBird.style.display="none"
         canvas.style.display="none"
         addResult.style.display="none"
+        reload.style.display="none"
         break;
         case "Game":
          document.body.style.backgroundImage = "url('game.png')";
@@ -112,6 +115,7 @@ function switchToStateFromURLHash() {
          document.body.style.backgroundRepeat="round"
          startBird.style.display="block"
         startBird.addEventListener('click',play,false)
+        reload.addEventListener('click',play,false)
         mainScreen.innerHTML=""
         aboutScreen.innerHTML=""
         recordsScreen.innerHTML=""
@@ -121,6 +125,7 @@ function switchToStateFromURLHash() {
         about.style.color="white"
         recordsButton.style.color="white"
         mainButton.style.color="white"
+        reload.style.display="none"
         break;
   
   
