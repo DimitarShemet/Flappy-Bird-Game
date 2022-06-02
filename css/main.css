@@ -181,7 +181,7 @@ h2{
  
   
 }
-@media only all and (max-width:800px){
+@media only all and (max-width:857px){
   .wrap__input {
     display: block;
     text-align: center;
@@ -203,16 +203,22 @@ h2{
     h2{
       font-size: 16px;
     }
+    #bird{
+      left: calc(50% - 94px);
+      background-size: auto;
+      width: 188px;
+      height: 170px;
+      top:  calc(50% - 94px);;
+    }
+  
     
   }
-  @media only all and (max-width:550px){
-    
-    
+
+  
+@media only all and (max-width:500px){
+  h2{
+    font-size: 13px;
   }
   
-@media only all and (max-width:450px){
-  h2{
-    font-size: 12px;
-  }
   
 }
