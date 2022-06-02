@@ -70,10 +70,13 @@ function switchToStateFromURLHash() {
       mainScreen.innerHTML=""
       recordsScreen.innerHTML=""
       playScreen.innerHTML=""
-      aboutScreen.innerHTML+="<h2>Hello, my name is Dmitri Shemet. Welcome to my game. This web application is my final project within the course  'Development of web applications in JavaScript' at IT-Academy. That is my first complete web application.  I really want to improve it, so let's make this game better together.  Below on that page I left  links to my social networks, you can write me  your impressions and  suggestions of any improvements for this game. That's all I wanted to tell you, now start the game! P.S. Try to beat my record :)</h2>"
+      aboutScreen.innerHTML+=" <div id='wrap'><h2 id='text'>Hello, my name is Dmitri Shemet. Welcome to my game. This web application is my final project within the course  'Development of web applications in JavaScript' at IT-Academy. That is my first complete web application.  I really want to improve it, so let's make this game better together.  Below on that page I left  links to my social networks, you can write me  your impressions and  suggestions of any improvements for this game. That's all I wanted to tell you, now start the game! P.S. Try to beat my record :)</h2></div>"
       aboutScreen.innerHTML+= '<div class="telegram"><a href="https://t.me/DmitriShemet" target="_blank"></a></div>'
       aboutScreen.innerHTML+= '<div class="vk"><a href="https://vk.com/id143649828" target="_blank"> </a></div>'
-
+      
+        
+     
+    
       tableInput.style.display = "none";
       document.body.style.backgroundImage = "url('about.png')"
       document.body.style.backgroundAttachment="fixed"
