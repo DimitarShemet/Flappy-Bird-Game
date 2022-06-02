@@ -212,7 +212,7 @@ h2{
 
   to {
     margin-left: 0%;
-    width: 100%;
+    width: 95%;
   }
 }
 @media only all and (max-width:857px){
@@ -231,7 +231,7 @@ h2{
       width: 420px;
     }
     #aboutScreen{
-      width: 400px;
+      width: 460px;
       margin: auto;
     }
     h2{
@@ -246,6 +246,10 @@ h2{
 @media only all and (max-width:500px){
   h2{
     font-size: 13px;
+  }
+  #aboutScreen{
+    width:330px;
+    
   }
   
 }
