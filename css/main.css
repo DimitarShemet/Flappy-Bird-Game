@@ -131,12 +131,11 @@ input{
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
-  top: 35%;
-  left: calc(50% - 125px);
+  top: 27%;
+  left: calc(50% - 140px);
   width: 280px;
   height: 250px;
   cursor: pointer;
-  display: none;
 }
 img{
   width: 458px;
@@ -203,13 +202,17 @@ h2{
     }
     h2{
       font-size: 16px;
-
     }
+    
+  }
+  @media only all and (max-width:550px){
+    
+    
   }
   
 @media only all and (max-width:450px){
   h2{
     font-size: 12px;
-
   }
+  
 }
