@@ -126,16 +126,12 @@ input{
   }
   
 #bird{
-  background-image: url('../start.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: absolute;
-  top: 27%;
-  left: calc(50% - 140px);
-  width: 280px;
-  height: 250px;
+ position: absolute;
   cursor: pointer;
+  width: 375px;
+  height: 339px;
+  left: calc(50% - 187.5px);
+  top: calc(50% - 169.5px);
 }
 img{
   width: 458px;
@@ -204,11 +200,7 @@ h2{
       font-size: 16px;
     }
     #bird{
-      left: calc(50% - 94px);
-      background-size: auto;
-      width: 188px;
-      height: 170px;
-      top:  calc(50% - 117px);;
+    
     }
   
     
@@ -220,8 +212,7 @@ h2{
     font-size: 13px;
   }
   #bird{
-  background-image: url('../start1.png');
-    top:  calc(50% - 148px);;
+
   }
   
 }
