@@ -220,7 +220,7 @@ h2{
     font-size: 13px;
   }
   #bird{
- 
+  background-image: url('../start1.png');
     top:  calc(50% - 148px);;
   }
   
