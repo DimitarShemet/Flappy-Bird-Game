@@ -208,7 +208,7 @@ h2{
       background-size: auto;
       width: 188px;
       height: 170px;
-      top:  calc(50% - 94px);;
+      top:  calc(50% - 110px);;
     }
   
     
@@ -219,6 +219,10 @@ h2{
   h2{
     font-size: 13px;
   }
-  
+  #bird{
+ 
+   
+    top:  calc(50% - 143px);;
+  }
   
 }
