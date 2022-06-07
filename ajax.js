@@ -33,6 +33,7 @@ function readReady(callresult,callback) {
     info.length = 10;
     if(callback)callback();
   }
+  console.log(info)
 }
 
 function errorHandler(jqXHR, statusStr, errorStr) {
@@ -117,7 +118,7 @@ function updateReady(callresult) {
   if (callresult.error != undefined) {
     alert(callresult.error);
   }
-  alert("Ваш результат добавлен!");
+  alert("Your score has been added!");
 }
 
 restoreInfo();
